@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>SINATRAA</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="SINATRAA">
+  <title>Linux基础命令（二） | SINATRAA</title>
+  <meta name="keywords" content=" 数仓基础 , 大数据 , Linux ">
+  <meta name="description" content="Linux基础命令（二） | SINATRAA">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Linux基础命令（一）">
 <meta name="keywords" content="数仓基础,大数据,Linux">
@@ -53,7 +53,7 @@
 </div>
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -210,12 +210,61 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-Linux基础命令（二）" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#君子曰：学不可以已。"><span class="toc-text">君子曰：学不可以已。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#青，取之于蓝，而青于蓝；冰，水为之，而寒于水。木直中绳。輮以为轮，其曲中规。虽有槁暴，不复挺者，輮使之然也。故木受绳则直，金就砺则利，君子博学而日参省乎己，则知明而行无过矣。"><span class="toc-text">青，取之于蓝，而青于蓝；冰，水为之，而寒于水。木直中绳。輮以为轮，其曲中规。虽有槁暴，不复挺者，輮使之然也。故木受绳则直，金就砺则利，君子博学而日参省乎己，则知明而行无过矣。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#吾尝终日而思矣，不如须臾之所学也；吾尝跂而望矣，不如登高之博见也。登高而招，臂非加长也，而见者远；顺风而呼，声非加疾也，而闻者彰。假舆马者，非利足也，而致千里；假舟楫者，非能水也，而绝江河，君子生非异也，善假于物也。"><span class="toc-text">吾尝终日而思矣，不如须臾之所学也；吾尝跂而望矣，不如登高之博见也。登高而招，臂非加长也，而见者远；顺风而呼，声非加疾也，而闻者彰。假舆马者，非利足也，而致千里；假舟楫者，非能水也，而绝江河，君子生非异也，善假于物也。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#积土成山，风雨兴焉；积水成渊，蛟龙生焉；积善成德，而神明自得，圣心备焉。故不积跬步，无以至千里；不积小流，无以成江海。骐骥一跃，不能十步；驽马十驾，功在不舍。锲而舍之，朽木不折；锲而不舍，金石可镂。蚓无爪牙之利，筋骨之强，上食埃土，下饮黄泉，用心一也。蟹六跪而二螯，非蛇鳝之穴无可寄托者，用心躁也。"><span class="toc-text">积土成山，风雨兴焉；积水成渊，蛟龙生焉；积善成德，而神明自得，圣心备焉。故不积跬步，无以至千里；不积小流，无以成江海。骐骥一跃，不能十步；驽马十驾，功在不舍。锲而舍之，朽木不折；锲而不舍，金石可镂。蚓无爪牙之利，筋骨之强，上食埃土，下饮黄泉，用心一也。蟹六跪而二螯，非蛇鳝之穴无可寄托者，用心躁也。</span></a></li></ol>
+        <h1 class="article-title">Linux基础命令（二）</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="大数据">大数据</a>/
+            
+                <a  data-rel="Linux">Linux</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color5">数仓基础</a>
+            
+            <a class="color4">大数据</a>
+            
+            <a class="color1">Linux</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-01-20 13:58:55'>2019-11-14 09:34</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux基础命令（二）"><span class="toc-text">Linux基础命令（二）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-echo"><span class="toc-text">1.echo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-环境变量"><span class="toc-text">2.环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#全局环境变量"><span class="toc-text">全局环境变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#个人环境变量"><span class="toc-text">个人环境变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#环境变量配置"><span class="toc-text">环境变量配置</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-alias命令"><span class="toc-text">3.alias命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-history命令"><span class="toc-text">4.history命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-rm命令"><span class="toc-text">5.rm命令</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -228,11 +277,132 @@
     }
 </style>
 </div>
-            <blockquote>
-<h4 id="君子曰：学不可以已。"><a href="#君子曰：学不可以已。" class="headerlink" title="君子曰：学不可以已。"></a><strong>君子曰：学不可以已。</strong></h4><h4 id="青，取之于蓝，而青于蓝；冰，水为之，而寒于水。木直中绳。輮以为轮，其曲中规。虽有槁暴，不复挺者，輮使之然也。故木受绳则直，金就砺则利，君子博学而日参省乎己，则知明而行无过矣。"><a href="#青，取之于蓝，而青于蓝；冰，水为之，而寒于水。木直中绳。輮以为轮，其曲中规。虽有槁暴，不复挺者，輮使之然也。故木受绳则直，金就砺则利，君子博学而日参省乎己，则知明而行无过矣。" class="headerlink" title="青，取之于蓝，而青于蓝；冰，水为之，而寒于水。木直中绳。輮以为轮，其曲中规。虽有槁暴，不复挺者，輮使之然也。故木受绳则直，金就砺则利，君子博学而日参省乎己，则知明而行无过矣。"></a><strong>青，取之于蓝，而青于蓝；冰，水为之，而寒于水。木直中绳。輮以为轮，其曲中规。虽有槁暴，不复挺者，輮使之然也。故木受绳则直，金就砺则利，君子博学而日参省乎己，则知明而行无过矣。</strong></h4><h4 id="吾尝终日而思矣，不如须臾之所学也；吾尝跂而望矣，不如登高之博见也。登高而招，臂非加长也，而见者远；顺风而呼，声非加疾也，而闻者彰。假舆马者，非利足也，而致千里；假舟楫者，非能水也，而绝江河，君子生非异也，善假于物也。"><a href="#吾尝终日而思矣，不如须臾之所学也；吾尝跂而望矣，不如登高之博见也。登高而招，臂非加长也，而见者远；顺风而呼，声非加疾也，而闻者彰。假舆马者，非利足也，而致千里；假舟楫者，非能水也，而绝江河，君子生非异也，善假于物也。" class="headerlink" title="吾尝终日而思矣，不如须臾之所学也；吾尝跂而望矣，不如登高之博见也。登高而招，臂非加长也，而见者远；顺风而呼，声非加疾也，而闻者彰。假舆马者，非利足也，而致千里；假舟楫者，非能水也，而绝江河，君子生非异也，善假于物也。"></a><strong>吾尝终日而思矣，不如须臾之所学也；吾尝跂而望矣，不如登高之博见也。登高而招，臂非加长也，而见者远；顺风而呼，声非加疾也，而闻者彰。假舆马者，非利足也，而致千里；假舟楫者，非能水也，而绝江河，君子生非异也，善假于物也。</strong></h4><h4 id="积土成山，风雨兴焉；积水成渊，蛟龙生焉；积善成德，而神明自得，圣心备焉。故不积跬步，无以至千里；不积小流，无以成江海。骐骥一跃，不能十步；驽马十驾，功在不舍。锲而舍之，朽木不折；锲而不舍，金石可镂。蚓无爪牙之利，筋骨之强，上食埃土，下饮黄泉，用心一也。蟹六跪而二螯，非蛇鳝之穴无可寄托者，用心躁也。"><a href="#积土成山，风雨兴焉；积水成渊，蛟龙生焉；积善成德，而神明自得，圣心备焉。故不积跬步，无以至千里；不积小流，无以成江海。骐骥一跃，不能十步；驽马十驾，功在不舍。锲而舍之，朽木不折；锲而不舍，金石可镂。蚓无爪牙之利，筋骨之强，上食埃土，下饮黄泉，用心一也。蟹六跪而二螯，非蛇鳝之穴无可寄托者，用心躁也。" class="headerlink" title="积土成山，风雨兴焉；积水成渊，蛟龙生焉；积善成德，而神明自得，圣心备焉。故不积跬步，无以至千里；不积小流，无以成江海。骐骥一跃，不能十步；驽马十驾，功在不舍。锲而舍之，朽木不折；锲而不舍，金石可镂。蚓无爪牙之利，筋骨之强，上食埃土，下饮黄泉，用心一也。蟹六跪而二螯，非蛇鳝之穴无可寄托者，用心躁也。"></a><strong>积土成山，风雨兴焉；积水成渊，蛟龙生焉；积善成德，而神明自得，圣心备焉。故不积跬步，无以至千里；不积小流，无以成江海。骐骥一跃，不能十步；驽马十驾，功在不舍。锲而舍之，朽木不折；锲而不舍，金石可镂。蚓无爪牙之利，筋骨之强，上食埃土，下饮黄泉，用心一也。蟹六跪而二螯，非蛇鳝之穴无可寄托者，用心躁也。</strong></h4></blockquote>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Linux基础命令（二）"><a href="#Linux基础命令（二）" class="headerlink" title="Linux基础命令（二）"></a>Linux基础命令（二）</h2><a id="more"></a>
 
-        </article>
-        
+<h4 id="1-echo"><a href="#1-echo" class="headerlink" title="1.echo"></a>1.echo</h4><p>​    <code>echo &quot;xxx&quot;</code>    打印字符串</p>
+<p>​    <code>echo $PATH</code>    打印环境变量</p>
+<h4 id="2-环境变量"><a href="#2-环境变量" class="headerlink" title="2.环境变量"></a>2.环境变量</h4><ul>
+<li><p>环境变量实质上是K=V，执行K时，实际执行的是对应的V</p>
+</li>
+<li><p>执行环境变量时，找到第一个符合条件的执行，不往后找</p>
+</li>
+<li><p>个人环境变量优先</p>
+</li>
+<li><p>修改环境变量后生效：</p>
+<p><code>source etc/profile</code></p>
+<p><code>. ~/.bashrc</code></p>
+<p><strong>通常使用</strong><code>source xxx</code></p>
+</li>
+<li><p>修改环境变量后不生效，则只在当前session有效</p>
+</li>
+</ul>
+<ol>
+<li><h5 id="全局环境变量"><a href="#全局环境变量" class="headerlink" title="全局环境变量"></a>全局环境变量</h5><p>整个系统的用户都能使用的，在<code>etc/profile</code></p>
+</li>
+<li><h5 id="个人环境变量"><a href="#个人环境变量" class="headerlink" title="个人环境变量"></a>个人环境变量</h5><p>只适用于个人用户的环境变量，在<code>~/.bash_profile</code>，<code>~/.bashrc</code></p>
+</li>
+<li><h5 id="环境变量配置"><a href="#环境变量配置" class="headerlink" title="环境变量配置"></a>环境变量配置</h5><p>以配置<code>JAVA_HOME</code>为例</p>
+<ul>
+<li><input disabled type="checkbox"> <p>新建<code>Java</code>目录</p>
+<p><code>mkdir -p usr/java</code></p>
+</li>
+<li><input disabled type="checkbox"> <p>上传jdk到服务器</p>
+<p><code>rz</code> </p>
+</li>
+<li><input disabled type="checkbox"> <p>如果用的是<code>java</code>的<code>.zip</code>包，安装<code>unzip</code>命令</p>
+<p><code>yum install -y unzip</code></p>
+</li>
+<li><input disabled type="checkbox"> <p>改变文件用户</p>
+<p><code>chown -R root:root /usr/java/*</code></p>
+</li>
+<li><input disabled type="checkbox"> <p>解压.zip包</p>
+<p><code>unzip jdk-xxx.zip</code></p>
+</li>
+<li><input disabled type="checkbox"> <p>如果使用的是.tar.gz包</p>
+<p><code>tar -zxvf  xxx.tar.gz</code></p>
+</li>
+<li><input disabled type="checkbox"> <p>打开全局环境变量文件</p>
+<p><code>vi etc/profile</code></p>
+</li>
+<li><input disabled type="checkbox"> <p>指定<code>JAVA_HOME</code></p>
+<p><code>export JAVA_HOME=/usr/java</code></p>
+</li>
+<li><input disabled type="checkbox"> <p>环境变量添加<code>JAVA_HOME</code></p>
+<p><code>export  PATH=$JAVA_HOME/bin:$PATH</code></p>
+</li>
+<li><input disabled type="checkbox"> <p>修改后执行<code>which java</code></p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="3-alias命令"><a href="#3-alias命令" class="headerlink" title="3.alias命令"></a>3.alias命令</h4><p>​    简化命令</p>
+<ul>
+<li><p>查看系统指定的命令别名</p>
+<p><code>alias</code></p>
+</li>
+<li><p>新建别名</p>
+<ol>
+<li><p>当前session生效</p>
+<p><code>alias home=&#39;cd /home/hadoop&#39;</code></p>
+</li>
+<li><p>用户生效</p>
+<ul>
+<li><input disabled type="checkbox"> <p>修改个人环境变量</p>
+<p><code>vi ~/.bashrc</code></p>
+<p><code>alias home=&#39;cd /home/hadoop&#39;</code></p>
+</li>
+<li><input disabled type="checkbox"> <p>生效</p>
+<p><code>source ~/.bashrc</code></p>
+<p><code>which home</code></p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="4-history命令"><a href="#4-history命令" class="headerlink" title="4.history命令"></a>4.history命令</h4><ul>
+<li><p>查看历史命令</p>
+<p><code>history</code></p>
+</li>
+<li><p>清除历史操作</p>
+<p><code>history -c</code></p>
+</li>
+<li><p>执行指定历史命令</p>
+<p><code>!x</code>    x指历史命令编号</p>
+</li>
+</ul>
+<h4 id="5-rm命令"><a href="#5-rm命令" class="headerlink" title="5.rm命令"></a>5.rm命令</h4><ul>
+<li><p>删除文件</p>
+<p><code>rm -f xxx</code></p>
+</li>
+<li><p>删除文件夹</p>
+<p><code>rm -rf xxx</code></p>
+</li>
+</ul>
+<p><strong>注意</strong>：当shell脚本中有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">K=&apos;XXX&apos;</span><br><span class="line">rm -rf $K/</span><br></pre></td></tr></table></figure>
+
+<p><strong>一定要加判断</strong>，$K是否存在，不存在时，实际执行的是<code>rm -rf /</code></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。请邮件至 847548379@qq.com。 </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">©2016-2019 h3lper1024</p>
