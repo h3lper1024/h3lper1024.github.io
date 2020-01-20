@@ -242,7 +242,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-01-20 13:58:55'>2019-11-14 09:34</time>
+        创建时间:<time class="date" title='更新时间: 2020-01-20 14:16:30'>2019-11-14 09:34</time>
         
     </div>
     <div class="article-meta">
@@ -306,34 +306,31 @@
 </li>
 <li><h5 id="环境变量配置"><a href="#环境变量配置" class="headerlink" title="环境变量配置"></a>环境变量配置</h5><p>以配置<code>JAVA_HOME</code>为例</p>
 <ul>
-<li><input disabled type="checkbox"> <p>新建<code>Java</code>目录</p>
+<li><p>新建<code>Java</code>目录</p>
 <p><code>mkdir -p usr/java</code></p>
 </li>
-<li><input disabled type="checkbox"> <p>上传jdk到服务器</p>
+<li><p>上传jdk到服务器</p>
 <p><code>rz</code> </p>
 </li>
-<li><input disabled type="checkbox"> <p>如果用的是<code>java</code>的<code>.zip</code>包，安装<code>unzip</code>命令</p>
+<li><p>如果用的是<code>java</code>的<code>.zip</code>包，安装<code>unzip</code>命令</p>
 <p><code>yum install -y unzip</code></p>
 </li>
-<li><input disabled type="checkbox"> <p>改变文件用户</p>
+<li><p>改变文件用户</p>
 <p><code>chown -R root:root /usr/java/*</code></p>
 </li>
-<li><input disabled type="checkbox"> <p>解压.zip包</p>
+<li><p>解压.zip包</p>
 <p><code>unzip jdk-xxx.zip</code></p>
 </li>
-<li><input disabled type="checkbox"> <p>如果使用的是.tar.gz包</p>
+<li><p>如果使用的是.tar.gz包</p>
 <p><code>tar -zxvf  xxx.tar.gz</code></p>
 </li>
-<li><input disabled type="checkbox"> <p>打开全局环境变量文件</p>
+<li><p>打开全局环境变量文件</p>
 <p><code>vi etc/profile</code></p>
 </li>
-<li><input disabled type="checkbox"> <p>指定<code>JAVA_HOME</code></p>
-<p><code>export JAVA_HOME=/usr/java</code></p>
+<li><p>指定<code>JAVA_HOME</code>，环境变量添加<code>JAVA_HOME</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#env</span><br><span class="line">   export JAVA_HOME=/usr/java</span><br><span class="line">export  PATH=$JAVA_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
 </li>
-<li><input disabled type="checkbox"> <p>环境变量添加<code>JAVA_HOME</code></p>
-<p><code>export  PATH=$JAVA_HOME/bin:$PATH</code></p>
-</li>
-<li><input disabled type="checkbox"> <p>修改后执行<code>which java</code></p>
+<li><p>修改后执行<code>which java</code></p>
 </li>
 </ul>
 </li>
@@ -349,18 +346,18 @@
 <p><code>alias home=&#39;cd /home/hadoop&#39;</code></p>
 </li>
 <li><p>用户生效</p>
+</li>
+</ol>
 <ul>
-<li><input disabled type="checkbox"> <p>修改个人环境变量</p>
+<li><p>修改个人环境变量</p>
 <p><code>vi ~/.bashrc</code></p>
 <p><code>alias home=&#39;cd /home/hadoop&#39;</code></p>
 </li>
-<li><input disabled type="checkbox"> <p>生效</p>
+<li><p>生效</p>
 <p><code>source ~/.bashrc</code></p>
 <p><code>which home</code></p>
 </li>
 </ul>
-</li>
-</ol>
 </li>
 </ul>
 <h4 id="4-history命令"><a href="#4-history命令" class="headerlink" title="4.history命令"></a>4.history命令</h4><ul>
