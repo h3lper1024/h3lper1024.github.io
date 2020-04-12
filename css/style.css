@@ -1325,7 +1325,7 @@ div.ac > ul > li:before,
   padding-left: 10px;
 }
 .post .pjax article .article-meta .origin a {
-  color: #000;
+  color: inherit;
 }
 .post .pjax article .article-meta .origin a:hover {
   color: #4078c0;
