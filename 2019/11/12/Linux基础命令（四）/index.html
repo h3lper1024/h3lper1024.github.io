@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Linux基础命令（三） | SINATRAA</title>
+  <title>Linux基础命令（四） | SINATRAA</title>
   <meta name="keywords" content=" 数仓基础 , 大数据 , Linux ">
-  <meta name="description" content="Linux基础命令（三） | SINATRAA">
+  <meta name="description" content="Linux基础命令（四） | SINATRAA">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Linux基础命令（四）">
 <meta name="keywords" content="数仓基础,大数据,Linux">
@@ -226,9 +226,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-Linux基础命令（三）" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Linux基础命令（四）" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Linux基础命令（三）</h1>
+        <h1 class="article-title">Linux基础命令（四）</h1>
     
     <div class="article-meta">
         
@@ -258,7 +258,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-14 07:59:44'>2019-11-12 09:32</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-14 20:44:51'>2019-11-12 09:32</time>
         
     </div>
     <div class="article-meta">
@@ -280,7 +280,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux基础命令（三）"><span class="toc-text">Linux基础命令（三）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-用户-用户组"><span class="toc-text">1.用户/用户组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建用户"><span class="toc-text">2.创建用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-删除用户"><span class="toc-text">3.删除用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-查看用户"><span class="toc-text">4.查看用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-模拟用户样式丢失"><span class="toc-text">5.模拟用户样式丢失</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-创建一个新的用户组，并将user添加到该组"><span class="toc-text">6.创建一个新的用户组，并将user添加到该组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-将user主组设置为group1"><span class="toc-text">7.将user主组设置为group1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-设置密码"><span class="toc-text">8.设置密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-切换用户"><span class="toc-text">9.切换用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-普通用户获取root的最大权限"><span class="toc-text">10.普通用户获取root的最大权限</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-发生su-user切换用户失败"><span class="toc-text">11.发生su - user切换用户失败</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-文件-文件夹属性"><span class="toc-text">12.文件/文件夹属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13-权限修改"><span class="toc-text">13.权限修改</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#14-查看文件-文件夹大小"><span class="toc-text">14.查看文件/文件夹大小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#15-查找文件"><span class="toc-text">15.查找文件</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux基础命令（四）"><span class="toc-text">Linux基础命令（四）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-vi"><span class="toc-text">1.vi</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1命令行模式常见命令"><span class="toc-text">1.1命令行模式常见命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2粘贴"><span class="toc-text">1.2粘贴</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-3查找ERROR"><span class="toc-text">1.3查找ERROR</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4设置行号"><span class="toc-text">1.4设置行号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-5清空内容"><span class="toc-text">1.5清空内容</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-系统命令"><span class="toc-text">2.系统命令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1查看磁盘状态"><span class="toc-text">2.1查看磁盘状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2查看内存状态"><span class="toc-text">2.2查看内存状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3查看机器负载"><span class="toc-text">2.3查看机器负载</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-查看、杀死进程"><span class="toc-text">3.查看、杀死进程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1查看进程"><span class="toc-text">3.1查看进程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2杀死进程"><span class="toc-text">3.2杀死进程</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-查看进程的端口号"><span class="toc-text">4.查看进程的端口号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-yum源安装"><span class="toc-text">5.yum源安装</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-1搜索"><span class="toc-text">5.1搜索</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2安装"><span class="toc-text">5.2安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3卸载"><span class="toc-text">5.3卸载</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-rpm查看，卸载"><span class="toc-text">6.rpm查看，卸载</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#6-1rpm查看已安装软件"><span class="toc-text">6.1rpm查看已安装软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-2rpm卸载"><span class="toc-text">6.2rpm卸载</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-wget下载安装包"><span class="toc-text">7.wget下载安装包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-压缩-解压"><span class="toc-text">8.压缩/解压</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#8-1tar文件"><span class="toc-text">8.1tar文件</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#8-1-1解压"><span class="toc-text">8.1.1解压</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#8-1-2压缩"><span class="toc-text">8.1.2压缩</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-2zip文件"><span class="toc-text">8.2zip文件</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#8-2-1解压"><span class="toc-text">8.2.1解压</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#8-2-2压缩"><span class="toc-text">8.2.2压缩</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -296,122 +296,96 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Linux基础命令（三）"><a href="#Linux基础命令（三）" class="headerlink" title="Linux基础命令（三）"></a>Linux基础命令（三）</h2><a id="more"></a>
+        <h2 id="Linux基础命令（四）"><a href="#Linux基础命令（四）" class="headerlink" title="Linux基础命令（四）"></a>Linux基础命令（四）</h2><a id="more"></a>
 
-<h4 id="1-用户-用户组"><a href="#1-用户-用户组" class="headerlink" title="1.用户/用户组"></a>1.用户/用户组</h4><ul>
-<li><p>查看与用户相关的命令：</p>
-<p><code>ll /usr/sbin/user*</code></p>
-<p>共有：<code>useradd,userdel,usermod,usernetctl</code></p>
-</li>
-<li><p>查看与用户组相关的命令：</p>
-<p><code>ll /usr/sbin/group*</code></p>
-<p>​    共有：<code>groupadd,groupdel,groupmems,groupmod</code></p>
-</li>
-</ul>
-<h4 id="2-创建用户"><a href="#2-创建用户" class="headerlink" title="2.创建用户"></a>2.创建用户</h4><p>​    <code>useradd xxx</code> </p>
-<p>​    <strong>创建用户会对应的创建用户组，并且设置用户主组，创建home/xxx文件夹</strong></p>
-<h4 id="3-删除用户"><a href="#3-删除用户" class="headerlink" title="3.删除用户"></a>3.删除用户</h4><p>​    <code>userdel xxx</code></p>
-<p>​    <strong>当删除用户当前组只有这一个用户，会删除用户组，但不会删除home/xxx</strong></p>
-<h4 id="4-查看用户"><a href="#4-查看用户" class="headerlink" title="4.查看用户"></a>4.查看用户</h4><p>​    <code>id xxx</code></p>
-<p>​    <strong>显示用户，用户组，用户主组</strong></p>
+<h4 id="1-vi"><a href="#1-vi" class="headerlink" title="1.vi"></a>1.vi</h4><p>​    三种模式：<strong>命令行模式、编辑模式、尾行模式</strong></p>
+<p>​    <strong>对生产配置文件进行vi编辑属于高危命令，应该先进行备份</strong></p>
+<h5 id="1-1命令行模式常见命令"><a href="#1-1命令行模式常见命令" class="headerlink" title="1.1命令行模式常见命令"></a>1.1命令行模式常见命令</h5><blockquote>
+<p>dd     删除当前行</p>
+<p>dG     删除光标当前及以下的所有行<br>ndd   删除光标当前及以下的n行</p>
+<p>gg      跳转到第一行的第一个字母<br>G       跳转到最后一行的第一个字母<br>shift+$ 行尾</p>
+</blockquote>
+<h5 id="1-2粘贴"><a href="#1-2粘贴" class="headerlink" title="1.2粘贴"></a>1.2粘贴</h5><p>​    <strong>必须在编辑模式下进行</strong></p>
+<h5 id="1-3查找ERROR"><a href="#1-3查找ERROR" class="headerlink" title="1.3查找ERROR"></a>1.3查找ERROR</h5><p>​    在尾行模式输入<code>/</code>，输入关键字，按<code>N</code>翻页</p>
+<h5 id="1-4设置行号"><a href="#1-4设置行号" class="headerlink" title="1.4设置行号"></a>1.4设置行号</h5><p>​    在尾行模式</p>
 <blockquote>
-<p><code>uid=1002(xxx) gid=1002(xxx) groups=1002(xxx)</code></p>
+<p>set nu</p>
+<p>set nonu    </p>
 </blockquote>
-<h4 id="5-模拟用户样式丢失"><a href="#5-模拟用户样式丢失" class="headerlink" title="5.模拟用户样式丢失"></a>5.模拟用户样式丢失</h4><p>​    正常：<code>[user@hostname ~]</code></p>
-<p>​    异常：<code>-bash-4.2$</code></p>
-<p>​    原因：<code>/home/user</code> 文件夹下缺少<code>.bash_logout,.bash_profile,.bashrc</code></p>
-<p>​    修正：</p>
+<h5 id="1-5清空内容"><a href="#1-5清空内容" class="headerlink" title="1.5清空内容"></a>1.5清空内容</h5><blockquote>
+<p>cat /dev/null &gt; xxx.log     完美</p>
+<p>echo ‘’ &gt; xxx.log                会存在一个字节</p>
+<p>gg dG</p>
+</blockquote>
+<h4 id="2-系统命令"><a href="#2-系统命令" class="headerlink" title="2.系统命令"></a>2.系统命令</h4><h5 id="2-1查看磁盘状态"><a href="#2-1查看磁盘状态" class="headerlink" title="2.1查看磁盘状态"></a>2.1查看磁盘状态</h5><blockquote>
+<p>df -h</p>
+</blockquote>
+<h5 id="2-2查看内存状态"><a href="#2-2查看内存状态" class="headerlink" title="2.2查看内存状态"></a>2.2查看内存状态</h5><blockquote>
+<p>free -m</p>
+</blockquote>
+<h5 id="2-3查看机器负载"><a href="#2-3查看机器负载" class="headerlink" title="2.3查看机器负载"></a>2.3查看机器负载</h5><blockquote>
+<p>top</p>
+</blockquote>
+<p>关注：<code>load average: 0.00, 0.01, 0.05</code></p>
 <blockquote>
-<p><code>cp /etc/skel/.* /home/user/</code></p>
-<p><code>chown user:user .bash*</code></p>
+<p>第一个数字：第1min负载</p>
+<p>第一个数字：第5min负载</p>
+<p>第一个数字：第15min负载</p>
+<p>不超过3/10</p>
 </blockquote>
-<h4 id="6-创建一个新的用户组，并将user添加到该组"><a href="#6-创建一个新的用户组，并将user添加到该组" class="headerlink" title="6.创建一个新的用户组，并将user添加到该组"></a>6.创建一个新的用户组，并将user添加到该组</h4><blockquote>
-<p><code>groupadd group1</code></p>
-<p><code>cat /etc/group |grep bigdata</code></p>
-<p><code>usermod -a -G bigdata ruoze</code></p>
+<h4 id="3-查看、杀死进程"><a href="#3-查看、杀死进程" class="headerlink" title="3.查看、杀死进程"></a>3.查看、杀死进程</h4><h5 id="3-1查看进程"><a href="#3-1查看进程" class="headerlink" title="3.1查看进程"></a>3.1查看进程</h5><blockquote>
+<p>ps -ef | grep xxx</p>
 </blockquote>
-<h4 id="7-将user主组设置为group1"><a href="#7-将user主组设置为group1" class="headerlink" title="7.将user主组设置为group1"></a>7.将user主组设置为group1</h4><blockquote>
-<p><code>usermod --gid  group1 user</code></p>
-</blockquote>
-<h4 id="8-设置密码"><a href="#8-设置密码" class="headerlink" title="8.设置密码"></a>8.设置密码</h4><blockquote>
-<p><code>passwd user</code></p>
-</blockquote>
-<h4 id="9-切换用户"><a href="#9-切换用户" class="headerlink" title="9.切换用户"></a>9.切换用户</h4><blockquote>
-<p><code>su user</code></p>
-<p><code>su - user</code>  <code>代表切换该用户的家目录，且执行环境变量文件</code></p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th align="center"></th>
-<th>.bash_profile</th>
-<th>.bashrc</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>su user</code></td>
-<td>不执行</td>
-<td>执行</td>
-</tr>
-<tr>
-<td align="center"><code>su - user</code></td>
-<td>执行</td>
-<td>执行</td>
-</tr>
-</tbody></table>
-<h4 id="10-普通用户获取root的最大权限"><a href="#10-普通用户获取root的最大权限" class="headerlink" title="10.普通用户获取root的最大权限"></a>10.普通用户获取root的最大权限</h4><blockquote>
-<p><code>vi /etc/sudoers</code></p>
-<p><code>user   ALL=(root)      NOPASSWD:ALL</code></p>
-</blockquote>
-<p>​    <strong>使用时要在命令前加<code>sudo</code></strong></p>
-<h4 id="11-发生su-user切换用户失败"><a href="#11-发生su-user切换用户失败" class="headerlink" title="11.发生su - user切换用户失败"></a>11.发生su - user切换用户失败</h4><p>​    <strong>查看<code>/etc/passwd</code>文件对应用户设置是否正确</strong></p>
-<p>​    <strong>正确应该为：</strong></p>
-<p>​    <code>user:x:1002:1003::/home/user:/bin/bash</code></p>
-<p>​    错误的示例：</p>
-<p>​    <code>ruoze:x:1002:1003::/home/ruoze:/bin/false</code></p>
-<p>​    <code>ruoze:x:1002:1003::/home/ruoze:/sbin/nologin</code></p>
-<h4 id="12-文件-文件夹属性"><a href="#12-文件-文件夹属性" class="headerlink" title="12.文件/文件夹属性"></a>12.文件/文件夹属性</h4><p>​    <code>drwxr-xr-x 2 root root  6 Nov 16 22:15 a.log</code></p>
+<p>结果：</p>
 <blockquote>
-<p>第一个字母d：表示文件夹</p>
-<ul>
-<li>d：文件夹</li>
-<li>-：文件</li>
-<li>l：链接</li>
-</ul>
-<p>rwx：权限</p>
-<ul>
-<li>r：读权限 4</li>
-<li>w：写权限 2</li>
-<li>x：执行权限 1</li>
-</ul>
-<p>第一组：当前用户的权限</p>
-<p>第二组：当前用户所在用户组权限</p>
-<p>第三组：其他用户组权限</p>
+<p>第一列：进程所属用户</p>
+<p>第二列：进程ID，PID</p>
+<p>第三列：进程父ID</p>
 </blockquote>
-<p>​    <strong>其他详情：<a href="https://www.cnblogs.com/kzang/articles/2673790.html" target="_blank" rel="noopener">链接</a></strong></p>
-<h4 id="13-权限修改"><a href="#13-权限修改" class="headerlink" title="13.权限修改"></a>13.权限修改</h4><p>​    <code>chmod</code></p>
-<h4 id="14-查看文件-文件夹大小"><a href="#14-查看文件-文件夹大小" class="headerlink" title="14.查看文件/文件夹大小"></a>14.查看文件/文件夹大小</h4><ul>
-<li><p>文件:</p>
+<h5 id="3-2杀死进程"><a href="#3-2杀死进程" class="headerlink" title="3.2杀死进程"></a>3.2杀死进程</h5><p><strong>高危命令</strong></p>
 <blockquote>
-<p><code>ll</code></p>
-<p><code>du -sh xxx.log</code></p>
+<p>kill -9 PID<br>kill -9 PID PID …<br>kill -9 $(pgrep -f 匹配关键词) 杀死于关键字有关的所有进程</p>
 </blockquote>
-</li>
-<li><p>文件夹</p>
-<blockquote>
-<p><code>du -sh xxx</code></p>
+<h4 id="4-查看进程的端口号"><a href="#4-查看进程的端口号" class="headerlink" title="4.查看进程的端口号"></a>4.查看进程的端口号</h4><blockquote>
+<p>netstat -nlp | grep PID      （准确）</p>
+<p>或</p>
+<p>netstat -nlp | grep 进程名  </p>
 </blockquote>
-</li>
-</ul>
-<h4 id="15-查找文件"><a href="#15-查找文件" class="headerlink" title="15.查找文件"></a>15.查找文件</h4><p>​    <code>find</code></p>
-<blockquote>
-<p><code>history 历史记录</code></p>
-<p><code>ps -ef 查看进程</code></p>
-<p><code>top 系统情况</code></p>
+<p>0.0.0.0:22 当前的ip</p>
+<p>:::22      当前的ip</p>
+<p>127.0.0.1:22 本地可以自己访问自己  window和其他服务器无法进行访问<br>localhost:22 本地可以自己访问自己  window和其他服务器无法进行访问</p>
+<h4 id="5-yum源安装"><a href="#5-yum源安装" class="headerlink" title="5.yum源安装"></a>5.yum源安装</h4><h5 id="5-1搜索"><a href="#5-1搜索" class="headerlink" title="5.1搜索"></a>5.1搜索</h5><blockquote>
+<p>yum search xxx</p>
 </blockquote>
-<p>​    查找hadoop：</p>
-<blockquote>
-<p>​    <code>find / -name &#39;*hadoop*&#39;</code></p>
+<h5 id="5-2安装"><a href="#5-2安装" class="headerlink" title="5.2安装"></a>5.2安装</h5><blockquote>
+<p>yum install -y xxx</p>
+</blockquote>
+<h5 id="5-3卸载"><a href="#5-3卸载" class="headerlink" title="5.3卸载"></a>5.3卸载</h5><blockquote>
+<p>yum remove xxx</p>
+</blockquote>
+<h4 id="6-rpm查看，卸载"><a href="#6-rpm查看，卸载" class="headerlink" title="6.rpm查看，卸载"></a>6.rpm查看，卸载</h4><h5 id="6-1rpm查看已安装软件"><a href="#6-1rpm查看已安装软件" class="headerlink" title="6.1rpm查看已安装软件"></a>6.1rpm查看已安装软件</h5><blockquote>
+<p>rpm -qa | grep xxx</p>
+</blockquote>
+<h5 id="6-2rpm卸载"><a href="#6-2rpm卸载" class="headerlink" title="6.2rpm卸载"></a>6.2rpm卸载</h5><blockquote>
+<p>rpm -e xxxx  会检查依赖情况</p>
+<p>rpm -e - nodeps xxx 不检查依赖，直接卸载</p>
+</blockquote>
+<h4 id="7-wget下载安装包"><a href="#7-wget下载安装包" class="headerlink" title="7.wget下载安装包"></a>7.wget下载安装包</h4><blockquote>
+<p>wget xxx</p>
+</blockquote>
+<h4 id="8-压缩-解压"><a href="#8-压缩-解压" class="headerlink" title="8.压缩/解压"></a>8.压缩/解压</h4><h5 id="8-1tar文件"><a href="#8-1tar文件" class="headerlink" title="8.1tar文件"></a>8.1tar文件</h5><h6 id="8-1-1解压"><a href="#8-1-1解压" class="headerlink" title="8.1.1解压"></a>8.1.1解压</h6><blockquote>
+<p>tar -zxvf xxx.tar.gz</p>
+</blockquote>
+<h6 id="8-1-2压缩"><a href="#8-1-2压缩" class="headerlink" title="8.1.2压缩"></a>8.1.2压缩</h6><blockquote>
+<p>tar -zcvf xxx</p>
+</blockquote>
+<h5 id="8-2zip文件"><a href="#8-2zip文件" class="headerlink" title="8.2zip文件"></a>8.2zip文件</h5><h6 id="8-2-1解压"><a href="#8-2-1解压" class="headerlink" title="8.2.1解压"></a>8.2.1解压</h6><blockquote>
+<p>unzip xxx.zip</p>
+</blockquote>
+<h6 id="8-2-2压缩"><a href="#8-2-2压缩" class="headerlink" title="8.2.2压缩"></a>8.2.2压缩</h6><blockquote>
+<p>zip xxx</p>
+<p>zip -r xxx.zip ./*         文件夹压缩，在文件夹里面</p>
+<p>zip -r xxx.zip xxx/*    文件夹压缩，在文件夹外面</p>
 </blockquote>
 
       
