@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Linux基础命令（一） | SINATRAA</title>
-  <meta name="keywords" content=" 数仓基础 , 大数据 , Linux ">
-  <meta name="description" content="Linux基础命令（一） | SINATRAA">
+  <title>MySQL（一） | SINATRAA</title>
+  <meta name="keywords" content=" 数仓基础 , 大数据 , Linux , MySQL ">
+  <meta name="description" content="MySQL（一） | SINATRAA">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="MySQL部署">
 <meta name="keywords" content="数仓基础,大数据,Linux,MySQL">
@@ -254,9 +254,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-Linux基础命令（一）" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-MySQL（一）" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Linux基础命令（一）</h1>
+        <h1 class="article-title">MySQL（一）</h1>
     
     <div class="article-meta">
         
@@ -268,7 +268,7 @@
             
                 <a  data-rel="大数据">大数据</a>/
             
-                <a  data-rel="Linux">Linux</a>
+                <a  data-rel="MySQL">MySQL</a>
             
         </span>
         
@@ -281,12 +281,14 @@
             
             <a class="color1">Linux</a>
             
+            <a class="color1">MySQL</a>
+            
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-14 07:59:22'>2019-11-10 09:30</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-17 16:53:19'>2019-11-12 09:32</time>
         
     </div>
     <div class="article-meta">
@@ -308,7 +310,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux基础命令（一）"><span class="toc-text">Linux基础命令（一）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-命令前缀"><span class="toc-text">1.命令前缀</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-pwd命令"><span class="toc-text">2.pwd命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-cd命令"><span class="toc-text">3.cd命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-ll命令"><span class="toc-text">4.ll命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-查看命令帮助"><span class="toc-text">5.查看命令帮助</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-创建文件夹"><span class="toc-text">6.创建文件夹</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-mv命令"><span class="toc-text">7.mv命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-cp命令"><span class="toc-text">8.cp命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-如何创建一个空文件-或者把一个文件设置为空"><span class="toc-text">9.如何创建一个空文件 或者把一个文件设置为空</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-如何查看文件内容"><span class="toc-text">10.如何查看文件内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-实时查看文件内容"><span class="toc-text">11.实时查看文件内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-如何定位ERORR文件"><span class="toc-text">12.如何定位ERORR文件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-当文件较小时"><span class="toc-text">1.当文件较小时</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-当文件较大时"><span class="toc-text">2.当文件较大时</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL部署"><span class="toc-text">MySQL部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-crontab"><span class="toc-text">1.crontab</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-后台执行"><span class="toc-text">2.后台执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-软连接"><span class="toc-text">3.软连接</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -324,45 +326,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Linux基础命令（一）"><a href="#Linux基础命令（一）" class="headerlink" title="Linux基础命令（一）"></a>Linux基础命令（一）</h2><a id="more"></a>
+        <h2 id="MySQL部署"><a href="#MySQL部署" class="headerlink" title="MySQL部署"></a>MySQL部署</h2><a id="more"></a>
 
-<h4 id="1-命令前缀"><a href="#1-命令前缀" class="headerlink" title="1.命令前缀"></a>1.命令前缀</h4><img src="/2019/11/10/Linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%EF%BC%88%E4%B8%80%EF%BC%89/1.png" style="zoom: 150%;">
-
-<h4 id="2-pwd命令"><a href="#2-pwd命令" class="headerlink" title="2.pwd命令"></a>2.pwd命令</h4><p>​    查看当前光标所在的目录</p>
-<h4 id="3-cd命令"><a href="#3-cd命令" class="headerlink" title="3.cd命令"></a>3.cd命令</h4><p>​    <code>cd -</code> ：打开上次访问的目录</p>
-<p>​    <code>cd ~</code>：打开当前用户家目录</p>
-<p>​    <code>cd ..</code>：打开上级目录</p>
-<h4 id="4-ll命令"><a href="#4-ll命令" class="headerlink" title="4.ll命令"></a>4.ll命令</h4><p>​    <code>ls</code>：显示目录中的文档</p>
-<p>​    <code>-l</code>： 显示目录文档详情</p>
-<p>​    <code>-a</code>：显示文档中的隐藏文档</p>
-<p>​    <code>-h</code>：以易阅读方式显示</p>
-<p>​    <code>-rt</code>：以时间倒叙排序</p>
-<p>​    <code>ls -l</code> 等价于<code>ll</code></p>
-<h4 id="5-查看命令帮助"><a href="#5-查看命令帮助" class="headerlink" title="5.查看命令帮助"></a>5.查看命令帮助</h4><p>​    <code>--help</code></p>
-<h4 id="6-创建文件夹"><a href="#6-创建文件夹" class="headerlink" title="6.创建文件夹"></a>6.创建文件夹</h4><p>​    <code>mkdir A</code>：创建<code>A</code>文件夹</p>
-<p>​    <code>mkdir -p A/B/C</code>：级联创建<code>A/B/C</code></p>
-<p>​    <code>mkdir A B C</code>：同级创建<code>A、B、C</code></p>
-<h4 id="7-mv命令"><a href="#7-mv命令" class="headerlink" title="7.mv命令"></a>7.mv命令</h4><p>​    <code>mv a.log A</code>：将<code>a.log</code>移动到<code>A</code>文件夹下</p>
-<p>​    <code>mv a.log A/b.log</code>：将<code>a.log</code>移动 到<code>A</code>文件夹下，并改名为<code>b.log</code></p>
-<h4 id="8-cp命令"><a href="#8-cp命令" class="headerlink" title="8.cp命令"></a>8.cp命令</h4><p>​    <code>cp a.log A</code>：将<code>a.log</code>复制到<code>A</code>文件夹下</p>
-<p>​    <code>cp a.log A/b.log</code>：将<code>a.log</code>复制到<code>A</code>文件夹下，并改名为<code>b.log</code></p>
-<h4 id="9-如何创建一个空文件-或者把一个文件设置为空"><a href="#9-如何创建一个空文件-或者把一个文件设置为空" class="headerlink" title="9.如何创建一个空文件 或者把一个文件设置为空"></a>9.如何创建一个空文件 或者把一个文件设置为空</h4><p>​    <code>touch a.log</code></p>
-<p>​    <code>echo &quot;&quot; &gt; a.log</code> 慎用，文件大小不是0</p>
-<p>​    <code>cat /dev/null &gt; a.log</code></p>
-<h4 id="10-如何查看文件内容"><a href="#10-如何查看文件内容" class="headerlink" title="10.如何查看文件内容"></a>10.如何查看文件内容</h4><p>​    <code>cat</code> ：显示全部文件内容</p>
-<p>​    <code>more</code> ：支持<code>空格键</code>往下翻页，不能回退，按<code>Q</code>退出</p>
-<p>​    <code>less</code>：支持上下翻页，按上下键翻页，按<code>Q</code>退出</p>
-<p>​    文件内容较少时，可以使用<code>cat more less</code>命令来查看，当查看如日志等大文件时，可采用实时查看的方式</p>
-<h4 id="11-实时查看文件内容"><a href="#11-实时查看文件内容" class="headerlink" title="11.实时查看文件内容"></a>11.实时查看文件内容</h4><p>​    <code>tail -f a.log</code></p>
-<p>​    <code>tail -F a.log</code>等价于 -f +retry</p>
-<p>​    <strong>flume exec source 切记使用 -F</strong></p>
-<h4 id="12-如何定位ERORR文件"><a href="#12-如何定位ERORR文件" class="headerlink" title="12.如何定位ERORR文件"></a>12.如何定位ERORR文件</h4><h5 id="1-当文件较小时"><a href="#1-当文件较小时" class="headerlink" title="1.当文件较小时"></a>1.当文件较小时</h5><p>​            可使用工具上传到Windows，然后搜索查看</p>
-<p>​            工具准备：<code>yum install -y lrzsz</code></p>
-<p>​            上传到Windows：sz a.log</p>
-<h5 id="2-当文件较大时"><a href="#2-当文件较大时" class="headerlink" title="2.当文件较大时"></a>2.当文件较大时</h5><p>​            <code>cat a.log | grep ERROR</code>     只输出ERROR所在行</p>
-<p>​            <code>cat a.log | grep -A 10 ERROR</code>     输出ERROR及前10行消息</p>
-<p>​            <code>cat a.log | grep -B 10 ERROR</code>     输出ERROR及前10行消息</p>
-<p>​            <code>cat a.log | grep -C 10 ERROR</code>     输出ERROR及前后各10行消息</p>
+<h3 id="1-crontab"><a href="#1-crontab" class="headerlink" title="1.crontab"></a>1.crontab</h3><blockquote>
+<p><code>*****</code></p>
+<p>分别代表：分，时，日，月，周</p>
+</blockquote>
+<p><strong>面试题</strong>：适用crontab实现每十秒输出时间</p>
+<p>新建test.sh</p>
+<blockquote>
+<p>#！/bin/bash</p>
+<p>for ((i=1;i&lt;=6;i++));</p>
+<p>do</p>
+<p>​    date</p>
+<p>​    sleep 10s</p>
+<p>done</p>
+<p>exit</p>
+</blockquote>
+<p>执行：<code>***** test.sh &gt;&gt; test.log</code></p>
+<h3 id="2-后台执行"><a href="#2-后台执行" class="headerlink" title="2.后台执行"></a>2.后台执行</h3><blockquote>
+<p>./test.sh &amp;</p>
+<p>nohup ./test.sh &amp;  手动启动脚本 看日志 开发维护 测试<br>nohup ./test.sh &gt; /root/test.log 2&gt;&amp;1 &amp;  生产上 </p>
+</blockquote>
+<h3 id="3-软连接"><a href="#3-软连接" class="headerlink" title="3.软连接"></a>3.软连接</h3><p>创建软连接：</p>
+<blockquote>
+<p>ln -s [源文件/文件夹] [指向的连接]</p>
+</blockquote>
+<p><strong>建议：做绝对路径</strong></p>
+<p><strong>如果源文件/文件夹被删除或移动，软连接会跳动</strong></p>
+<p><strong>注意：权限问题</strong></p>
+<p><strong>带版本号的软件，安装时，建议使用软连接，版本升级后，只需要修改软连接</strong></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。请邮件至 847548379@qq.com。 </span>
