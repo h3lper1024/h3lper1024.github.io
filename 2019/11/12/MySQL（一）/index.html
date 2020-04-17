@@ -288,7 +288,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-17 16:53:19'>2019-11-12 09:32</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-17 18:12:00'>2019-11-12 09:32</time>
         
     </div>
     <div class="article-meta">
@@ -310,7 +310,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL部署"><span class="toc-text">MySQL部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-crontab"><span class="toc-text">1.crontab</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-后台执行"><span class="toc-text">2.后台执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-软连接"><span class="toc-text">3.软连接</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL部署"><span class="toc-text">MySQL部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-准备MySQL安装包"><span class="toc-text">1.准备MySQL安装包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-检查是否已经部署过MySQL"><span class="toc-text">2.检查是否已经部署过MySQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-上传MySQL安装包"><span class="toc-text">3.上传MySQL安装包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-解压"><span class="toc-text">4.解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-创建软连接"><span class="toc-text">5.创建软连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-为MySQL创建用户组、用户"><span class="toc-text">6.为MySQL创建用户组、用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-恢复用户样式"><span class="toc-text">7.恢复用户样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-配置my-cnf文件"><span class="toc-text">8.配置my.cnf文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-配置mysqladmin用户家目录权限"><span class="toc-text">9.配置mysqladmin用户家目录权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-部署安装"><span class="toc-text">10.部署安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-配置开机自启动mysql"><span class="toc-text">11.配置开机自启动mysql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-启动MySQL"><span class="toc-text">12.启动MySQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-配置数据库用户"><span class="toc-text">13.配置数据库用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-配置环境变量"><span class="toc-text">14.配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-优化mysqladmin用户样式"><span class="toc-text">15.优化mysqladmin用户样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16-重新部署"><span class="toc-text">16.重新部署</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -328,35 +328,137 @@
       
         <h2 id="MySQL部署"><a href="#MySQL部署" class="headerlink" title="MySQL部署"></a>MySQL部署</h2><a id="more"></a>
 
-<h3 id="1-crontab"><a href="#1-crontab" class="headerlink" title="1.crontab"></a>1.crontab</h3><blockquote>
-<p><code>*****</code></p>
-<p>分别代表：分，时，日，月，周</p>
+<p><a href="https://github.com/Hackeruncle/MySQL/blob/master/MySQL%205.6.23%20Install.txt" target="_blank" rel="noopener">链接</a></p>
+<h3 id="1-准备MySQL安装包"><a href="#1-准备MySQL安装包" class="headerlink" title="1.准备MySQL安装包"></a>1.准备MySQL安装包</h3><h3 id="2-检查是否已经部署过MySQL"><a href="#2-检查是否已经部署过MySQL" class="headerlink" title="2.检查是否已经部署过MySQL"></a>2.检查是否已经部署过MySQL</h3><blockquote>
+<p>ps -ef | grep mysql</p>
+<p>rpm -qa | grep mysql</p>
 </blockquote>
-<p><strong>面试题</strong>：适用crontab实现每十秒输出时间</p>
-<p>新建test.sh</p>
+<h3 id="3-上传MySQL安装包"><a href="#3-上传MySQL安装包" class="headerlink" title="3.上传MySQL安装包"></a>3.上传MySQL安装包</h3><blockquote>
+<p>cd /usr/local</p>
+<p>rz</p>
+</blockquote>
+<h3 id="4-解压"><a href="#4-解压" class="headerlink" title="4.解压"></a>4.解压</h3><blockquote>
+<p>tar -zxvf mysql-xxx.tar.gz</p>
+</blockquote>
+<h3 id="5-创建软连接"><a href="#5-创建软连接" class="headerlink" title="5.创建软连接"></a>5.创建软连接</h3><blockquote>
+<p>ln -s mysql-xxx mysql</p>
+</blockquote>
+<h3 id="6-为MySQL创建用户组、用户"><a href="#6-为MySQL创建用户组、用户" class="headerlink" title="6.为MySQL创建用户组、用户"></a>6.为MySQL创建用户组、用户</h3><blockquote>
+<p>groupadd -g 101 db</p>
+<p>useradd -u 514 -g db -G root -d /usr/local/mysql mysqladmin</p>
+<p>注：</p>
+<p>​    groupadd </p>
+<p>​        -g    指定用户组的id</p>
+<p>​    useradd</p>
+<p>​        -u    指定用户id</p>
+<p>​        -g    指定用户主组</p>
+<p>​        -G    指定用户附加组</p>
+<p>​        -d    指定用户家目录</p>
+</blockquote>
+<p>如果用户mysqladmin已存在，执行：</p>
 <blockquote>
-<p>#！/bin/bash</p>
-<p>for ((i=1;i&lt;=6;i++));</p>
-<p>do</p>
-<p>​    date</p>
-<p>​    sleep 10s</p>
-<p>done</p>
-<p>exit</p>
+<p>usermod -u 514 -g db -G root -d /usr/local/mysql mysqladmin</p>
 </blockquote>
-<p>执行：<code>***** test.sh &gt;&gt; test.log</code></p>
-<h3 id="2-后台执行"><a href="#2-后台执行" class="headerlink" title="2.后台执行"></a>2.后台执行</h3><blockquote>
-<p>./test.sh &amp;</p>
-<p>nohup ./test.sh &amp;  手动启动脚本 看日志 开发维护 测试<br>nohup ./test.sh &gt; /root/test.log 2&gt;&amp;1 &amp;  生产上 </p>
+<h3 id="7-恢复用户样式"><a href="#7-恢复用户样式" class="headerlink" title="7.恢复用户样式"></a>7.恢复用户样式</h3><blockquote>
+<p>cp /etc/skel/.* /usr/local/mysql</p>
 </blockquote>
-<h3 id="3-软连接"><a href="#3-软连接" class="headerlink" title="3.软连接"></a>3.软连接</h3><p>创建软连接：</p>
+<h3 id="8-配置my-cnf文件"><a href="#8-配置my-cnf文件" class="headerlink" title="8.配置my.cnf文件"></a>8.配置my.cnf文件</h3><blockquote>
+<p>vi /etc/my.cnf</p>
+<p>按<code>i</code>进入编辑模式</p>
+</blockquote>
+<p><strong>复制</strong>：</p>
 <blockquote>
-<p>ln -s [源文件/文件夹] [指向的连接]</p>
+<p>[client]<br>port            = 3306<br>socket          = /usr/local/mysql/data/mysql.sock</p>
+<p>[mysqld]<br>port            = 3306<br>socket          = /usr/local/mysql/data/mysql.sock</p>
+<p>skip-external-locking<br>key_buffer_size = 256M<br>sort_buffer_size = 2M<br>read_buffer_size = 2M<br>read_rnd_buffer_size = 4M<br>query_cache_size= 32M<br>max_allowed_packet = 16M<br>myisam_sort_buffer_size=128M<br>tmp_table_size=32M</p>
+<p>table_open_cache = 512<br>thread_cache_size = 8<br>wait_timeout = 86400<br>interactive_timeout = 86400<br>max_connections = 600</p>
+<p>#Try number of CPU’s*2 for thread_concurrency</p>
+<p>thread_concurrency = 32</p>
+<p>#isolation level and default engine<br>default-storage-engine = INNODB<br>transaction-isolation = READ-COMMITTED</p>
+<p>server-id  = 1<br>basedir     = /usr/local/mysql<br>datadir     = /usr/local/mysql/data<br>pid-file     = /usr/local/mysql/data/hostname.pid</p>
+<p>#open performance schema<br>log-warnings<br>sysdate-is-now</p>
+<p>binlog_format = MIXED<br>log_bin_trust_function_creators=1<br>log-error  = /usr/local/mysql/data/hostname.err<br>log-bin=/usr/local/mysql/arch/mysql-bin<br>#other logs<br>#general_log =1<br>#general_log_file  = /usr/local/mysql/data/general_log.err<br>#slow_query_log=1<br>#slow_query_log_file=/usr/local/mysql/data/slow_log.err</p>
+<p>#for replication slave<br>#log-slave-updates<br>#sync_binlog = 1</p>
+<p>#for innodb options<br>innodb_data_home_dir = /usr/local/mysql/data/<br>innodb_data_file_path = ibdata1:500M:autoextend<br>innodb_log_group_home_dir = /usr/local/mysql/arch<br>innodb_log_files_in_group = 2<br>innodb_log_file_size = 200M</p>
+<p>#TUN</p>
+<p>innodb_buffer_pool_size = 2048M<br>innodb_additional_mem_pool_size = 50M<br>innodb_log_buffer_size = 16M</p>
+<p>innodb_lock_wait_timeout = 100<br>#innodb_thread_concurrency = 0<br>innodb_flush_log_at_trx_commit = 1<br>innodb_locks_unsafe_for_binlog=1</p>
+<p>#innodb io features: add for mysql5.5.8<br>performance_schema<br>innodb_read_io_threads=4<br>innodb-write-io-threads=4<br>innodb-io-capacity=200<br>#purge threads change default(0) to 1 for purge<br>innodb_purge_threads=1<br>innodb_use_native_aio=on</p>
+<p>#case-sensitive file names and separate tablespace<br>innodb_file_per_table = 1<br>lower_case_table_names=1</p>
+<p>[mysqldump]<br>quick<br>max_allowed_packet = 16M</p>
+<p>[mysql]<br>no-auto-rehash</p>
+<p>[mysqlhotcopy]<br>interactive-timeout</p>
+<p>[myisamchk]<br>key_buffer_size = 256M<br>sort_buffer_size = 256M<br>read_buffer = 2M<br>write_buffer = 2M</p>
 </blockquote>
-<p><strong>建议：做绝对路径</strong></p>
-<p><strong>如果源文件/文件夹被删除或移动，软连接会跳动</strong></p>
-<p><strong>注意：权限问题</strong></p>
-<p><strong>带版本号的软件，安装时，建议使用软连接，版本升级后，只需要修改软连接</strong></p>
-
+<p><strong>调整</strong>：</p>
+<blockquote>
+<p>根据实际情况，调整：</p>
+<p>innodb_buffer_pool_size = 2048M</p>
+</blockquote>
+<p><strong>配置权限</strong>：</p>
+<blockquote>
+<p>chown  mysqladmin:db  /etc/my.cnf </p>
+<p>chmod  640 /etc/my.cnf </p>
+<p>ll my.cnf</p>
+</blockquote>
+<h3 id="9-配置mysqladmin用户家目录权限"><a href="#9-配置mysqladmin用户家目录权限" class="headerlink" title="9.配置mysqladmin用户家目录权限"></a>9.配置mysqladmin用户家目录权限</h3><blockquote>
+<p>chown -R mysqladmin:dba /usr/local/mysql<br>chown -R mysqladmin:dba /usr/local/mysql/*<br>chown -R mysqladmin:dba /usr/local/mysql-5.6.23-linux-glibc2.5-x86_64</p>
+<p>chmod -R 755 /usr/local/mysql<br>chmod -R 755 /usr/local/mysql/*<br>chmod -R 755 /usr/local/mysql-5.6.23-linux-glibc2.5-x86_64</p>
+</blockquote>
+<h3 id="10-部署安装"><a href="#10-部署安装" class="headerlink" title="10.部署安装"></a>10.部署安装</h3><blockquote>
+<p>su - mysqladmin </p>
+<p>mkdir arch</p>
+<p>scripts/mysql_install_db</p>
+<p><strong>注：这里可能会出现依赖问题</strong></p>
+<p>scripts/mysql_install_db  –user=mysqladmin –basedir=/usr/local/mysql –atadir=/usr/local/mysql/data </p>
+</blockquote>
+<h3 id="11-配置开机自启动mysql"><a href="#11-配置开机自启动mysql" class="headerlink" title="11.配置开机自启动mysql"></a>11.配置开机自启动mysql</h3><blockquote>
+<p>cd /usr/local/mysql</p>
+<p>cp support-files/mysql.server /etc/rc.d/init.d/mysql </p>
+<p>chmod +x /etc/rc.d/init.d/mysql</p>
+<p>chkconfig –del mysql</p>
+<p>chkconfig –add mysql</p>
+<p>chkconfig –level 345 mysql on</p>
+<p>vi /etc/rc.local</p>
+<p>输入：</p>
+<p>su - mysqladmin -c “/etc/init.d/mysql start –federated”</p>
+<p>保存退出；</p>
+</blockquote>
+<h3 id="12-启动MySQL"><a href="#12-启动MySQL" class="headerlink" title="12.启动MySQL"></a>12.启动MySQL</h3><blockquote>
+<p>su - mysqladmin</p>
+<p>rm -rf my.cnf  my-new.cnf</p>
+<p>service mysql start</p>
+</blockquote>
+<h3 id="13-配置数据库用户"><a href="#13-配置数据库用户" class="headerlink" title="13.配置数据库用户"></a>13.配置数据库用户</h3><blockquote>
+<p>先用空密码登入mysql</p>
+<p>mysql -uroot -p</p>
+<p>回车登入</p>
+<p>use mysql;</p>
+<p>select host,user,password from user;</p>
+<p>delete from user where user=’’;</p>
+<p>update user set password=password(‘xxxxx’) where user=’root’;</p>
+<p>flush privileges;</p>
+</blockquote>
+<h3 id="14-配置环境变量"><a href="#14-配置环境变量" class="headerlink" title="14.配置环境变量"></a>14.配置环境变量</h3><blockquote>
+<p>su - mysqladmin</p>
+<p>vi .bashrc</p>
+<p>输入：</p>
+<p>export MYSQL_HOME=/usr/local/mysql</p>
+<p>export PATH=$MYSQL_HOME/bin:$PATH</p>
+<p>保存退出</p>
+<p>source .bashrc</p>
+<p>echo $MYSQL_HOME</p>
+<p>which mysql</p>
+</blockquote>
+<h3 id="15-优化mysqladmin用户样式"><a href="#15-优化mysqladmin用户样式" class="headerlink" title="15.优化mysqladmin用户样式"></a>15.优化mysqladmin用户样式</h3><blockquote>
+<p>su - mysqladmin</p>
+<p>vi .bashrc</p>
+<p>输入：</p>
+<p>PS1=<code>uname -n</code>“:”‘$USER’”:”‘$PWD’”:&gt;”; export PS1</p>
+<p>保存退出</p>
+<p>source .bashrc</p>
+</blockquote>
+<h3 id="16-重新部署"><a href="#16-重新部署" class="headerlink" title="16.重新部署"></a>16.重新部署</h3>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。请邮件至 847548379@qq.com。 </span>
     </div>
