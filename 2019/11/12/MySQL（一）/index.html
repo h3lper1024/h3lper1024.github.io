@@ -288,7 +288,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-17 18:12:00'>2019-11-12 09:32</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-17 18:24:18'>2019-11-12 09:32</time>
         
     </div>
     <div class="article-meta">
@@ -305,6 +305,17 @@
             </span>
         </span>
         
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
         
     </div>
     
@@ -454,7 +465,7 @@
 <p>su - mysqladmin</p>
 <p>vi .bashrc</p>
 <p>输入：</p>
-<p>PS1=<code>uname -n</code>“:”‘$USER’”:”‘$PWD’”:&gt;”; export PS1</p>
+<p>PS1=’uname -n’”:”‘$USER’”:”‘$PWD’”:&gt;”; export PS1</p>
 <p>保存退出</p>
 <p>source .bashrc</p>
 </blockquote>
@@ -466,6 +477,27 @@
 
 
 
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'h3lper1024',
+            clientSecret: 'zzzlll888',
+            repo: 'h3lper1024.github.io',
+            owner: 'h3lper1024',
+            admin: ['h3lper1024'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
 
 
 
