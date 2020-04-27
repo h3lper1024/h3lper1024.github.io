@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Linux基础命令（四） | SINATRAA</title>
-  <meta name="keywords" content=" 数仓基础 , 大数据 , Linux ">
-  <meta name="description" content="Linux基础命令（四） | SINATRAA">
+  <title>Hadoop（一） | SINATRAA</title>
+  <meta name="keywords" content=" 数仓基础 , 大数据 , Linux , Hadoop , HDFS ">
+  <meta name="description" content="Hadoop（一） | SINATRAA">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Linux基础命令（三）">
 <meta name="keywords" content="数仓基础,大数据,Linux">
@@ -286,9 +286,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-Linux基础命令（四）" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Hadoop（二）" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Linux基础命令（四）</h1>
+        <h1 class="article-title">Hadoop（一）</h1>
     
     <div class="article-meta">
         
@@ -300,7 +300,7 @@
             
                 <a  data-rel="大数据">大数据</a>/
             
-                <a  data-rel="Linux">Linux</a>
+                <a  data-rel="Hadoop">Hadoop</a>
             
         </span>
         
@@ -313,12 +313,16 @@
             
             <a class="color1">Linux</a>
             
+            <a class="color2">Hadoop</a>
+            
+            <a class="color5">HDFS</a>
+            
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-14 20:44:51'>2019-11-12 09:32</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-27 20:05:54'>2019-11-12 09:32</time>
         
     </div>
     <div class="article-meta">
@@ -340,7 +344,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux基础命令（四）"><span class="toc-text">Linux基础命令（四）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-vi"><span class="toc-text">1.vi</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1命令行模式常见命令"><span class="toc-text">1.1命令行模式常见命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2粘贴"><span class="toc-text">1.2粘贴</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-3查找ERROR"><span class="toc-text">1.3查找ERROR</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4设置行号"><span class="toc-text">1.4设置行号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-5清空内容"><span class="toc-text">1.5清空内容</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-系统命令"><span class="toc-text">2.系统命令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1查看磁盘状态"><span class="toc-text">2.1查看磁盘状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2查看内存状态"><span class="toc-text">2.2查看内存状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3查看机器负载"><span class="toc-text">2.3查看机器负载</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-查看、杀死进程"><span class="toc-text">3.查看、杀死进程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1查看进程"><span class="toc-text">3.1查看进程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2杀死进程"><span class="toc-text">3.2杀死进程</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-查看进程的端口号"><span class="toc-text">4.查看进程的端口号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-yum源安装"><span class="toc-text">5.yum源安装</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-1搜索"><span class="toc-text">5.1搜索</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2安装"><span class="toc-text">5.2安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3卸载"><span class="toc-text">5.3卸载</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-rpm查看，卸载"><span class="toc-text">6.rpm查看，卸载</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#6-1rpm查看已安装软件"><span class="toc-text">6.1rpm查看已安装软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-2rpm卸载"><span class="toc-text">6.2rpm卸载</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-wget下载安装包"><span class="toc-text">7.wget下载安装包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-压缩-解压"><span class="toc-text">8.压缩/解压</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#8-1tar文件"><span class="toc-text">8.1tar文件</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#8-1-1解压"><span class="toc-text">8.1.1解压</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#8-1-2压缩"><span class="toc-text">8.1.2压缩</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-2zip文件"><span class="toc-text">8.2zip文件</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#8-2-1解压"><span class="toc-text">8.2.1解压</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#8-2-2压缩"><span class="toc-text">8.2.2压缩</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#YARN的伪分布式部署以及MapReduce运行"><span class="toc-text">YARN的伪分布式部署以及MapReduce运行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-参考部署文档"><span class="toc-text">1.参考部署文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-配置YARN的伪分布式部署"><span class="toc-text">2.配置YARN的伪分布式部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-在YARN上运行MapReduce作业（WordCount）"><span class="toc-text">3.在YARN上运行MapReduce作业（WordCount）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-大数据生态圈现状"><span class="toc-text">4.大数据生态圈现状</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-jps命令"><span class="toc-text">5.jps命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Linux的OOM机制"><span class="toc-text">6.Linux的OOM机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-Linux的清空-tmp机制"><span class="toc-text">7.Linux的清空/tmp机制</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -356,97 +360,90 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Linux基础命令（四）"><a href="#Linux基础命令（四）" class="headerlink" title="Linux基础命令（四）"></a>Linux基础命令（四）</h2><a id="more"></a>
+        <h2 id="YARN的伪分布式部署以及MapReduce运行"><a href="#YARN的伪分布式部署以及MapReduce运行" class="headerlink" title="YARN的伪分布式部署以及MapReduce运行"></a>YARN的伪分布式部署以及MapReduce运行</h2><a id="more"></a>
 
-<h4 id="1-vi"><a href="#1-vi" class="headerlink" title="1.vi"></a>1.vi</h4><p>​    三种模式：<strong>命令行模式、编辑模式、尾行模式</strong></p>
-<p>​    <strong>对生产配置文件进行vi编辑属于高危命令，应该先进行备份</strong></p>
-<h5 id="1-1命令行模式常见命令"><a href="#1-1命令行模式常见命令" class="headerlink" title="1.1命令行模式常见命令"></a>1.1命令行模式常见命令</h5><blockquote>
-<p>dd     删除当前行</p>
-<p>dG     删除光标当前及以下的所有行<br>ndd   删除光标当前及以下的n行</p>
-<p>gg      跳转到第一行的第一个字母<br>G       跳转到最后一行的第一个字母<br>shift+$ 行尾</p>
+<h3 id="1-参考部署文档"><a href="#1-参考部署文档" class="headerlink" title="1.参考部署文档"></a>1.参考部署文档</h3><p>​    Apache:<a href="https://hadoop.apache.org/docs/r2.10.0/hadoop-project-dist/hadoop-common/SingleCluster.html" target="_blank" rel="noopener">Apache Hadoop 2.10.0</a></p>
+<h3 id="2-配置YARN的伪分布式部署"><a href="#2-配置YARN的伪分布式部署" class="headerlink" title="2.配置YARN的伪分布式部署"></a>2.配置YARN的伪分布式部署</h3><blockquote>
+<p>cd /home/hadoop/app/hadoop/etc/hadoop</p>
+<p>cp mapred-site.xml.template mapred-site.xml</p>
+<p>vi mapred-site.xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<p>vi yarn-site.xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;    </span><br><span class="line"></span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;主机名:38088&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注意：如果使用的是云主机，最好修改YARN的web页面访问端口（默认8088），防止被挖矿</p>
+<p><strong>启动YARN:start-yarn.sh</strong></p>
 </blockquote>
-<h5 id="1-2粘贴"><a href="#1-2粘贴" class="headerlink" title="1.2粘贴"></a>1.2粘贴</h5><p>​    <strong>必须在编辑模式下进行</strong></p>
-<h5 id="1-3查找ERROR"><a href="#1-3查找ERROR" class="headerlink" title="1.3查找ERROR"></a>1.3查找ERROR</h5><p>​    在尾行模式输入<code>/</code>，输入关键字，按<code>N</code>翻页</p>
-<h5 id="1-4设置行号"><a href="#1-4设置行号" class="headerlink" title="1.4设置行号"></a>1.4设置行号</h5><p>​    在尾行模式</p>
+<h3 id="3-在YARN上运行MapReduce作业（WordCount）"><a href="#3-在YARN上运行MapReduce作业（WordCount）" class="headerlink" title="3.在YARN上运行MapReduce作业（WordCount）"></a>3.在YARN上运行MapReduce作业（WordCount）</h3><ul>
+<li><p>上传输入文件wc.input</p>
 <blockquote>
-<p>set nu</p>
-<p>set nonu    </p>
+<p>vi wc.input </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apple apple orange</span><br><span class="line">orange grape lemon</span><br><span class="line">lemon banana </span><br><span class="line">apple banana</span><br></pre></td></tr></table></figure>
+
+<p>hadoop fs -put wc.input /wordcount</p>
 </blockquote>
-<h5 id="1-5清空内容"><a href="#1-5清空内容" class="headerlink" title="1.5清空内容"></a>1.5清空内容</h5><blockquote>
-<p>cat /dev/null &gt; xxx.log     完美</p>
-<p>echo ‘’ &gt; xxx.log                会存在一个字节</p>
-<p>gg dG</p>
-</blockquote>
-<h4 id="2-系统命令"><a href="#2-系统命令" class="headerlink" title="2.系统命令"></a>2.系统命令</h4><h5 id="2-1查看磁盘状态"><a href="#2-1查看磁盘状态" class="headerlink" title="2.1查看磁盘状态"></a>2.1查看磁盘状态</h5><blockquote>
-<p>df -h</p>
-</blockquote>
-<h5 id="2-2查看内存状态"><a href="#2-2查看内存状态" class="headerlink" title="2.2查看内存状态"></a>2.2查看内存状态</h5><blockquote>
-<p>free -m</p>
-</blockquote>
-<h5 id="2-3查看机器负载"><a href="#2-3查看机器负载" class="headerlink" title="2.3查看机器负载"></a>2.3查看机器负载</h5><blockquote>
-<p>top</p>
-</blockquote>
-<p>关注：<code>load average: 0.00, 0.01, 0.05</code></p>
+</li>
+<li><p>hadoop jar执行wordcount</p>
 <blockquote>
-<p>第一个数字：第1min负载</p>
-<p>第一个数字：第5min负载</p>
-<p>第一个数字：第15min负载</p>
-<p>不超过3/10</p>
+<p>hadoop jar ./share/hadoop/mapreduce2/hadoop-mapreduce-examples-2.6.0-cdh5.16.2.jar wordcount  /wordcount/wc.input /wordcount/wc.output</p>
 </blockquote>
-<h4 id="3-查看、杀死进程"><a href="#3-查看、杀死进程" class="headerlink" title="3.查看、杀死进程"></a>3.查看、杀死进程</h4><h5 id="3-1查看进程"><a href="#3-1查看进程" class="headerlink" title="3.1查看进程"></a>3.1查看进程</h5><blockquote>
-<p>ps -ef | grep xxx</p>
-</blockquote>
-<p>结果：</p>
+</li>
+<li><p>web界面查看任务执行情况：</p>
 <blockquote>
-<p>第一列：进程所属用户</p>
-<p>第二列：进程ID，PID</p>
-<p>第三列：进程父ID</p>
+<p>主机名：38088</p>
 </blockquote>
-<h5 id="3-2杀死进程"><a href="#3-2杀死进程" class="headerlink" title="3.2杀死进程"></a>3.2杀死进程</h5><p><strong>高危命令</strong></p>
+<img src="/2019/11/12/Hadoop%EF%BC%88%E4%BA%8C%EF%BC%89/Hadoop（二）.png" style="zoom: 150%;">
+
 <blockquote>
-<p>kill -9 PID<br>kill -9 PID PID …<br>kill -9 $(pgrep -f 匹配关键词) 杀死于关键字有关的所有进程</p>
+<p><strong>关注：</strong></p>
+<p>​    <strong>State</strong></p>
+<p>​    <strong>FinalStatus</strong></p>
 </blockquote>
-<h4 id="4-查看进程的端口号"><a href="#4-查看进程的端口号" class="headerlink" title="4.查看进程的端口号"></a>4.查看进程的端口号</h4><blockquote>
-<p>netstat -nlp | grep PID      （准确）</p>
-<p>或</p>
-<p>netstat -nlp | grep 进程名  </p>
+</li>
+<li><p>成功执行后</p>
+<p>会生成两个文件res</p>
+<img src="/2019/11/12/Hadoop%EF%BC%88%E4%BA%8C%EF%BC%89/res.png" style="zoom: 250%;">
+
+</li>
+</ul>
+<h3 id="4-大数据生态圈现状"><a href="#4-大数据生态圈现状" class="headerlink" title="4.大数据生态圈现状"></a>4.大数据生态圈现状</h3><ul>
+<li>存储 ：HDFS 分布式文件系统  Hive HBase Kudu Cassandra</li>
+</ul>
+<ul>
+<li>计算 ：MR Hivesql Spark Flink</li>
+</ul>
+<ul>
+<li>资源+作业调度 ： Yarn（1家）</li>
+</ul>
+<h3 id="5-jps命令"><a href="#5-jps命令" class="headerlink" title="5.jps命令"></a>5.jps命令</h3><ul>
+<li><p>jps位置</p>
+<blockquote>
+<p>which jps</p>
+<p>/usr/java/jdk1.8.0_45/bin/jps</p>
 </blockquote>
-<p>0.0.0.0:22 当前的ip</p>
-<p>:::22      当前的ip</p>
-<p>127.0.0.1:22 本地可以自己访问自己  window和其他服务器无法进行访问<br>localhost:22 本地可以自己访问自己  window和其他服务器无法进行访问</p>
-<h4 id="5-yum源安装"><a href="#5-yum源安装" class="headerlink" title="5.yum源安装"></a>5.yum源安装</h4><h5 id="5-1搜索"><a href="#5-1搜索" class="headerlink" title="5.1搜索"></a>5.1搜索</h5><blockquote>
-<p>yum search xxx</p>
+</li>
+<li><p>查看具体</p>
+<blockquote>
+<p> jps -l</p>
+<p>2594 org.apache.hadoop.hdfs.server.namenode.NameNode<br>2724 org.apache.hadoop.hdfs.server.datanode.DataNode<br>3061 org.apache.hadoop.yarn.server.resourcemanager.ResourceManager<br>3173 org.apache.hadoop.yarn.server.nodemanager.NodeManager<br>3610 sun.tools.jps.Jps<br>2879 org.apache.hadoop.hdfs.server.namenode.SecondaryNameNode</p>
 </blockquote>
-<h5 id="5-2安装"><a href="#5-2安装" class="headerlink" title="5.2安装"></a>5.2安装</h5><blockquote>
-<p>yum install -y xxx</p>
+</li>
+<li><p>对应的pid文件</p>
+<blockquote>
+<p>/tmp/hsperfdata_username</p>
+<p>移走pid对应的文件，不影响进程的启动/停止</p>
 </blockquote>
-<h5 id="5-3卸载"><a href="#5-3卸载" class="headerlink" title="5.3卸载"></a>5.3卸载</h5><blockquote>
-<p>yum remove xxx</p>
+</li>
+<li><p>确认进程是否还在运行</p>
+<blockquote>
+<p>使用ps -ef | grep </p>
 </blockquote>
-<h4 id="6-rpm查看，卸载"><a href="#6-rpm查看，卸载" class="headerlink" title="6.rpm查看，卸载"></a>6.rpm查看，卸载</h4><h5 id="6-1rpm查看已安装软件"><a href="#6-1rpm查看已安装软件" class="headerlink" title="6.1rpm查看已安装软件"></a>6.1rpm查看已安装软件</h5><blockquote>
-<p>rpm -qa | grep xxx</p>
-</blockquote>
-<h5 id="6-2rpm卸载"><a href="#6-2rpm卸载" class="headerlink" title="6.2rpm卸载"></a>6.2rpm卸载</h5><blockquote>
-<p>rpm -e xxxx  会检查依赖情况</p>
-<p>rpm -e - nodeps xxx 不检查依赖，直接卸载</p>
-</blockquote>
-<h4 id="7-wget下载安装包"><a href="#7-wget下载安装包" class="headerlink" title="7.wget下载安装包"></a>7.wget下载安装包</h4><blockquote>
-<p>wget xxx</p>
-</blockquote>
-<h4 id="8-压缩-解压"><a href="#8-压缩-解压" class="headerlink" title="8.压缩/解压"></a>8.压缩/解压</h4><h5 id="8-1tar文件"><a href="#8-1tar文件" class="headerlink" title="8.1tar文件"></a>8.1tar文件</h5><h6 id="8-1-1解压"><a href="#8-1-1解压" class="headerlink" title="8.1.1解压"></a>8.1.1解压</h6><blockquote>
-<p>tar -zxvf xxx.tar.gz</p>
-</blockquote>
-<h6 id="8-1-2压缩"><a href="#8-1-2压缩" class="headerlink" title="8.1.2压缩"></a>8.1.2压缩</h6><blockquote>
-<p>tar -zcvf xxx</p>
-</blockquote>
-<h5 id="8-2zip文件"><a href="#8-2zip文件" class="headerlink" title="8.2zip文件"></a>8.2zip文件</h5><h6 id="8-2-1解压"><a href="#8-2-1解压" class="headerlink" title="8.2.1解压"></a>8.2.1解压</h6><blockquote>
-<p>unzip xxx.zip</p>
-</blockquote>
-<h6 id="8-2-2压缩"><a href="#8-2-2压缩" class="headerlink" title="8.2.2压缩"></a>8.2.2压缩</h6><blockquote>
-<p>zip xxx</p>
-<p>zip -r xxx.zip ./*         文件夹压缩，在文件夹里面</p>
-<p>zip -r xxx.zip xxx/*    文件夹压缩，在文件夹外面</p>
-</blockquote>
+</li>
+</ul>
+<h3 id="6-Linux的OOM机制"><a href="#6-Linux的OOM机制" class="headerlink" title="6.Linux的OOM机制"></a>6.Linux的OOM机制</h3><p>​        free -m 查看机器的内存情况</p>
+<p>​        某个进程 memory 使用过高，机器为了保护自己，放置夯住，去杀死内存使用最多的进程。</p>
+<h3 id="7-Linux的清空-tmp机制"><a href="#7-Linux的清空-tmp机制" class="headerlink" title="7.Linux的清空/tmp机制"></a>7.Linux的清空/tmp机制</h3><p>​         /tmp默认存储周期 1个月 会自动清空不在规则以内的文件</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。请邮件至 847548379@qq.com。 </span>
