@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Linux基础命令（三） | SINATRAA</title>
-  <meta name="keywords" content=" 数仓基础 , 大数据 , Linux ">
-  <meta name="description" content="Linux基础命令（三） | SINATRAA">
+  <title>Hadoop（三） | SINATRAA</title>
+  <meta name="keywords" content=" 数仓基础 , 大数据 , Linux , Hadoop , HDFS ">
+  <meta name="description" content="Hadoop（三） | SINATRAA">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Linux基础命令（三）">
 <meta name="keywords" content="数仓基础,大数据,Linux">
@@ -298,9 +298,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-Linux基础命令（三）" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Hadoop（三）" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Linux基础命令（三）</h1>
+        <h1 class="article-title">Hadoop（三）</h1>
     
     <div class="article-meta">
         
@@ -312,7 +312,7 @@
             
                 <a  data-rel="大数据">大数据</a>/
             
-                <a  data-rel="Linux">Linux</a>
+                <a  data-rel="Hadoop">Hadoop</a>
             
         </span>
         
@@ -325,12 +325,16 @@
             
             <a class="color1">Linux</a>
             
+            <a class="color2">Hadoop</a>
+            
+            <a class="color5">HDFS</a>
+            
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-14 07:59:44'>2019-11-12 09:32</time>
+        创建时间:<time class="date" title='更新时间: 2020-05-06 17:43:18'>2019-11-12 09:32</time>
         
     </div>
     <div class="article-meta">
@@ -352,7 +356,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux基础命令（三）"><span class="toc-text">Linux基础命令（三）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-用户-用户组"><span class="toc-text">1.用户/用户组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建用户"><span class="toc-text">2.创建用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-删除用户"><span class="toc-text">3.删除用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-查看用户"><span class="toc-text">4.查看用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-模拟用户样式丢失"><span class="toc-text">5.模拟用户样式丢失</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-创建一个新的用户组，并将user添加到该组"><span class="toc-text">6.创建一个新的用户组，并将user添加到该组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-将user主组设置为group1"><span class="toc-text">7.将user主组设置为group1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-设置密码"><span class="toc-text">8.设置密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-切换用户"><span class="toc-text">9.切换用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-普通用户获取root的最大权限"><span class="toc-text">10.普通用户获取root的最大权限</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-发生su-user切换用户失败"><span class="toc-text">11.发生su - user切换用户失败</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-文件-文件夹属性"><span class="toc-text">12.文件/文件夹属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13-权限修改"><span class="toc-text">13.权限修改</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#14-查看文件-文件夹大小"><span class="toc-text">14.查看文件/文件夹大小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#15-查找文件"><span class="toc-text">15.查找文件</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HDFS介绍及其架构"><span class="toc-text">HDFS介绍及其架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-DFS"><span class="toc-text">1.DFS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-HDFS"><span class="toc-text">2.HDFS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-HDFS从哪里来"><span class="toc-text">3.HDFS从哪里来</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-HDFS架构"><span class="toc-text">4.HDFS架构    </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-HDFS副本放置策略"><span class="toc-text">5.HDFS副本放置策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-text"></span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -368,123 +372,65 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Linux基础命令（三）"><a href="#Linux基础命令（三）" class="headerlink" title="Linux基础命令（三）"></a>Linux基础命令（三）</h2><a id="more"></a>
+        <h2 id="HDFS介绍及其架构"><a href="#HDFS介绍及其架构" class="headerlink" title="HDFS介绍及其架构"></a>HDFS介绍及其架构</h2><a id="more"></a>
 
-<h4 id="1-用户-用户组"><a href="#1-用户-用户组" class="headerlink" title="1.用户/用户组"></a>1.用户/用户组</h4><ul>
-<li><p>查看与用户相关的命令：</p>
-<p><code>ll /usr/sbin/user*</code></p>
-<p>共有：<code>useradd,userdel,usermod,usernetctl</code></p>
-</li>
-<li><p>查看与用户组相关的命令：</p>
-<p><code>ll /usr/sbin/group*</code></p>
-<p>​    共有：<code>groupadd,groupdel,groupmems,groupmod</code></p>
-</li>
-</ul>
-<h4 id="2-创建用户"><a href="#2-创建用户" class="headerlink" title="2.创建用户"></a>2.创建用户</h4><p>​    <code>useradd xxx</code> </p>
-<p>​    <strong>创建用户会对应的创建用户组，并且设置用户主组，创建home/xxx文件夹</strong></p>
-<h4 id="3-删除用户"><a href="#3-删除用户" class="headerlink" title="3.删除用户"></a>3.删除用户</h4><p>​    <code>userdel xxx</code></p>
-<p>​    <strong>当删除用户当前组只有这一个用户，会删除用户组，但不会删除home/xxx</strong></p>
-<h4 id="4-查看用户"><a href="#4-查看用户" class="headerlink" title="4.查看用户"></a>4.查看用户</h4><p>​    <code>id xxx</code></p>
-<p>​    <strong>显示用户，用户组，用户主组</strong></p>
+<h3 id="1-DFS"><a href="#1-DFS" class="headerlink" title="1.DFS"></a>1.DFS</h3><p>​    Distribute File System，分布式文件（管理）系统</p>
+<p>​    是指文件系统管理的物理存储资源不一定直接链接在本地节点上，而是通过计算机网络与节点相连，可让多机器上的多用户分享文件和存储空间。分布式文件系统的设计基于客户机/服务器模式。</p>
 <blockquote>
-<p><code>uid=1002(xxx) gid=1002(xxx) groups=1002(xxx)</code></p>
+<p>分布式文件系统的特点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、分布式文件系统可以有效解决数据的存储和管理难题</span><br><span class="line">2、将固定于某个地点的某个文件系统，扩展到任意多个地点/多个文件系统</span><br><span class="line">3、众多的节点组成一个文件系统网络</span><br><span class="line">4、每个节点可以分布在不同的地点，通过网络进行节点间的通信和数据传输</span><br><span class="line">5、在使用分布式文件系统时，无需关心数据是存储在哪个节点上、或者是从哪个节点获取的，只需要像使用本地文件系统一样管理和存储文件系统中的数据</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h4 id="5-模拟用户样式丢失"><a href="#5-模拟用户样式丢失" class="headerlink" title="5.模拟用户样式丢失"></a>5.模拟用户样式丢失</h4><p>​    正常：<code>[user@hostname ~]</code></p>
-<p>​    异常：<code>-bash-4.2$</code></p>
-<p>​    原因：<code>/home/user</code> 文件夹下缺少<code>.bash_logout,.bash_profile,.bashrc</code></p>
-<p>​    修正：</p>
+<h3 id="2-HDFS"><a href="#2-HDFS" class="headerlink" title="2.HDFS"></a>2.HDFS</h3><p>​    Hadoop Distribute File System</p>
+<p>​    是Hadoop项目的核心子项目，使用主/从架构，是分布式计算中数据存储管理的基础，是基于流数据模式访问和处理超大文件的需求而开发的，可以运行于廉价的商用服务器上。</p>
 <blockquote>
-<p><code>cp /etc/skel/.* /home/user/</code></p>
-<p><code>chown user:user .bash*</code></p>
+<p>HDFS优势：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、可构建在廉价机器上，设备成本相对低</span><br><span class="line">2、高容错性，HDFS将数据自动保存多个副本，副本丢失后，自动恢复，防止数据丢失或损坏</span><br><span class="line">3、适合批处理，HDFS适合一次写入、多次查询（读取）的情况，适合在已有的数据进行多次分析，稳定性好</span><br><span class="line">4、适合存储大文件，其中的大表示可以存储单个大文件，因为是分块存储，以及表示存储大量的数据</span><br></pre></td></tr></table></figure>
+
+<p>HDFS劣势：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、由于提高吞吐量，降低实时性</span><br><span class="line">2、由于每个文件都会在namenode中记录元数据，如果存储了大量的小文件，会对namenode造成很大的压力</span><br><span class="line">3、不合适小文件处理，在mapreduce的过程中小文件的数量会造成map数量的增大，导致资源被占用，而且速度慢</span><br><span class="line">4、不适合文件的修改，文件只能追加在文件的末尾，不支持任意位置修改，不支持多个写入者操作</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h4 id="6-创建一个新的用户组，并将user添加到该组"><a href="#6-创建一个新的用户组，并将user添加到该组" class="headerlink" title="6.创建一个新的用户组，并将user添加到该组"></a>6.创建一个新的用户组，并将user添加到该组</h4><blockquote>
-<p><code>groupadd group1</code></p>
-<p><code>cat /etc/group |grep bigdata</code></p>
-<p><code>usermod -a -G bigdata ruoze</code></p>
-</blockquote>
-<h4 id="7-将user主组设置为group1"><a href="#7-将user主组设置为group1" class="headerlink" title="7.将user主组设置为group1"></a>7.将user主组设置为group1</h4><blockquote>
-<p><code>usermod --gid  group1 user</code></p>
-</blockquote>
-<h4 id="8-设置密码"><a href="#8-设置密码" class="headerlink" title="8.设置密码"></a>8.设置密码</h4><blockquote>
-<p><code>passwd user</code></p>
-</blockquote>
-<h4 id="9-切换用户"><a href="#9-切换用户" class="headerlink" title="9.切换用户"></a>9.切换用户</h4><blockquote>
-<p><code>su user</code></p>
-<p><code>su - user</code>  <code>代表切换该用户的家目录，且执行环境变量文件</code></p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th align="center"></th>
-<th>.bash_profile</th>
-<th>.bashrc</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>su user</code></td>
-<td>不执行</td>
-<td>执行</td>
-</tr>
-<tr>
-<td align="center"><code>su - user</code></td>
-<td>执行</td>
-<td>执行</td>
-</tr>
-</tbody></table>
-<h4 id="10-普通用户获取root的最大权限"><a href="#10-普通用户获取root的最大权限" class="headerlink" title="10.普通用户获取root的最大权限"></a>10.普通用户获取root的最大权限</h4><blockquote>
-<p><code>vi /etc/sudoers</code></p>
-<p><code>user   ALL=(root)      NOPASSWD:ALL</code></p>
-</blockquote>
-<p>​    <strong>使用时要在命令前加<code>sudo</code></strong></p>
-<h4 id="11-发生su-user切换用户失败"><a href="#11-发生su-user切换用户失败" class="headerlink" title="11.发生su - user切换用户失败"></a>11.发生su - user切换用户失败</h4><p>​    <strong>查看<code>/etc/passwd</code>文件对应用户设置是否正确</strong></p>
-<p>​    <strong>正确应该为：</strong></p>
-<p>​    <code>user:x:1002:1003::/home/user:/bin/bash</code></p>
-<p>​    错误的示例：</p>
-<p>​    <code>ruoze:x:1002:1003::/home/ruoze:/bin/false</code></p>
-<p>​    <code>ruoze:x:1002:1003::/home/ruoze:/sbin/nologin</code></p>
-<h4 id="12-文件-文件夹属性"><a href="#12-文件-文件夹属性" class="headerlink" title="12.文件/文件夹属性"></a>12.文件/文件夹属性</h4><p>​    <code>drwxr-xr-x 2 root root  6 Nov 16 22:15 a.log</code></p>
-<blockquote>
-<p>第一个字母d：表示文件夹</p>
+<h3 id="3-HDFS从哪里来"><a href="#3-HDFS从哪里来" class="headerlink" title="3.HDFS从哪里来"></a>3.HDFS从哪里来</h3><p>​    HDFS 源于 Google 在2003年10月份发表的GFS（Google File System） 论文。 它其实就是 GFS 的一个克隆版本。</p>
+<h3 id="4-HDFS架构"><a href="#4-HDFS架构" class="headerlink" title="4.HDFS架构    "></a>4.HDFS架构    <img src="/2019/11/12/Hadoop%EF%BC%88%E4%B8%89%EF%BC%89/HDFS架构.png" style="zoom: 150%;"></h3><p><strong>HDFS 采用Master/Slave的架构来存储数据，这种架构主要由四个部分组成，分别为HDFS Client、NameNode、DataNode和Secondary NameNode</strong></p>
 <ul>
-<li>d：文件夹</li>
-<li>-：文件</li>
-<li>l：链接</li>
+<li><p><strong>HDFS Client</strong>：</p>
+<blockquote>
+<p>1、文件切分。文件上传 HDFS 的时候，Client 将文件切分成 一个一个的Block，然后进行存储。</p>
+<p>2、与 NameNode 交互，获取文件的位置信息。</p>
+<p>3、与 DataNode 交互，读取或者写入数据。</p>
+<p>4、Client 提供一些命令来管理 HDFS，比如启动或者关闭HDFS。</p>
+<p>5、Client 可以通过一些命令来访问 HDFS。</p>
+</blockquote>
+</li>
+<li><p><strong>NameNode</strong></p>
+<blockquote>
+<p> master，它是一个主管、管理者。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;1、管理 HDFS 的名称空间。</span><br><span class="line">2、管理数据块（Block）映射信息。</span><br><span class="line">&gt;3、配置副本策略。</span><br><span class="line">4、处理客户端读写请求。</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><strong>DataNode</strong></p>
+<blockquote>
+<p>Slave，NameNode 下达命令，DataNode 执行实际的操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、存储实际的数据块。</span><br><span class="line">2、执行数据块的读/写操作。</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><strong>Secondary NameNode</strong></p>
+<blockquote>
+<p>并非 NameNode 的热备。当NameNode 挂掉的时候，它并不能马上替换 NameNode 并提供服务。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &gt;1、辅助 NameNode，分担其工作量。</span><br><span class="line">2、定期合并 fsimage和fsedits，并推送给NameNode。</span><br><span class="line"> &gt;3、在紧急情况下，可辅助恢复 NameNode（H+1）。</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
 </ul>
-<p>rwx：权限</p>
+<h3 id="5-HDFS副本放置策略"><a href="#5-HDFS副本放置策略" class="headerlink" title="5.HDFS副本放置策略"></a>5.HDFS副本放置策略</h3><h3 id><a href="#" class="headerlink" title></a></h3><ul>
+<li>第一个副本放置在上传文件的DataNode服务器节点上，如果是在集群外提交，则随机放置在一个DataNode服务器节点上。</li>
+<li>第二个副本放置在与第一个DataNode不同的机架的一个节点上。</li>
+<li>第三个副本放置在与第二个DataNode相同的机架的不同节点上。</li>
+<li>更多副本：随机节点放置。</li>
+</ul>
 <ul>
-<li>r：读权限 4</li>
-<li>w：写权限 2</li>
-<li>x：执行权限 1</li>
+<li></li>
+<li></li>
+<li></li>
 </ul>
-<p>第一组：当前用户的权限</p>
-<p>第二组：当前用户所在用户组权限</p>
-<p>第三组：其他用户组权限</p>
-</blockquote>
-<p>​    <strong>其他详情：<a href="https://www.cnblogs.com/kzang/articles/2673790.html" target="_blank" rel="noopener">链接</a></strong></p>
-<h4 id="13-权限修改"><a href="#13-权限修改" class="headerlink" title="13.权限修改"></a>13.权限修改</h4><p>​    <code>chmod</code></p>
-<h4 id="14-查看文件-文件夹大小"><a href="#14-查看文件-文件夹大小" class="headerlink" title="14.查看文件/文件夹大小"></a>14.查看文件/文件夹大小</h4><ul>
-<li><p>文件:</p>
-<blockquote>
-<p><code>ll</code></p>
-<p><code>du -sh xxx.log</code></p>
-</blockquote>
-</li>
-<li><p>文件夹</p>
-<blockquote>
-<p><code>du -sh xxx</code></p>
-</blockquote>
-</li>
-</ul>
-<h4 id="15-查找文件"><a href="#15-查找文件" class="headerlink" title="15.查找文件"></a>15.查找文件</h4><p>​    <code>find</code></p>
-<blockquote>
-<p><code>history 历史记录</code></p>
-<p><code>ps -ef 查看进程</code></p>
-<p><code>top 系统情况</code></p>
-</blockquote>
-<p>​    查找hadoop：</p>
-<blockquote>
-<p>​    <code>find / -name &#39;*hadoop*&#39;</code></p>
-</blockquote>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。请邮件至 847548379@qq.com。 </span>
