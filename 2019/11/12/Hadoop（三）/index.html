@@ -334,7 +334,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-05-06 17:43:18'>2019-11-12 09:32</time>
+        创建时间:<time class="date" title='更新时间: 2020-05-06 22:22:09'>2019-11-12 09:32</time>
         
     </div>
     <div class="article-meta">
@@ -356,7 +356,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HDFS介绍及其架构"><span class="toc-text">HDFS介绍及其架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-DFS"><span class="toc-text">1.DFS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-HDFS"><span class="toc-text">2.HDFS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-HDFS从哪里来"><span class="toc-text">3.HDFS从哪里来</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-HDFS架构"><span class="toc-text">4.HDFS架构    </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-HDFS副本放置策略"><span class="toc-text">5.HDFS副本放置策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-text"></span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HDFS介绍及其架构"><span class="toc-text">HDFS介绍及其架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-DFS"><span class="toc-text">1.DFS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-HDFS"><span class="toc-text">2.HDFS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-HDFS从哪里来"><span class="toc-text">3.HDFS从哪里来</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-HDFS架构"><span class="toc-text">4.HDFS架构    </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-HDFS读写流程"><span class="toc-text">5.HDFS读写流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-HDFS副本放置策略"><span class="toc-text">6.HDFS副本放置策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-text"></span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -420,7 +420,8 @@
 </blockquote>
 </li>
 </ul>
-<h3 id="5-HDFS副本放置策略"><a href="#5-HDFS副本放置策略" class="headerlink" title="5.HDFS副本放置策略"></a>5.HDFS副本放置策略</h3><h3 id><a href="#" class="headerlink" title></a></h3><ul>
+<h3 id="5-HDFS读写流程"><a href="#5-HDFS读写流程" class="headerlink" title="5.HDFS读写流程"></a>5.HDFS读写流程</h3><p>​    </p>
+<h3 id="6-HDFS副本放置策略"><a href="#6-HDFS副本放置策略" class="headerlink" title="6.HDFS副本放置策略"></a>6.HDFS副本放置策略</h3><h3 id><a href="#" class="headerlink" title></a></h3><ul>
 <li>第一个副本放置在上传文件的DataNode服务器节点上，如果是在集群外提交，则随机放置在一个DataNode服务器节点上。</li>
 <li>第二个副本放置在与第一个DataNode不同的机架的一个节点上。</li>
 <li>第三个副本放置在与第二个DataNode相同的机架的不同节点上。</li>
@@ -609,6 +610,10 @@
     
 
     /* 背景图样式 */
+    
+    .post {
+        background: url(/img/q.jpg);
+    }
     
     
 
