@@ -334,7 +334,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-05-06 22:22:09'>2019-11-12 09:32</time>
+        创建时间:<time class="date" title='更新时间: 2020-05-21 11:54:03'>2019-11-12 09:32</time>
         
     </div>
     <div class="article-meta">
@@ -356,7 +356,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HDFS介绍及其架构"><span class="toc-text">HDFS介绍及其架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-DFS"><span class="toc-text">1.DFS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-HDFS"><span class="toc-text">2.HDFS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-HDFS从哪里来"><span class="toc-text">3.HDFS从哪里来</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-HDFS架构"><span class="toc-text">4.HDFS架构    </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-HDFS读写流程"><span class="toc-text">5.HDFS读写流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-HDFS副本放置策略"><span class="toc-text">6.HDFS副本放置策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-text"></span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HDFS介绍及其架构"><span class="toc-text">HDFS介绍及其架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-DFS"><span class="toc-text">1.DFS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-HDFS"><span class="toc-text">2.HDFS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-HDFS从哪里来"><span class="toc-text">3.HDFS从哪里来</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-HDFS架构"><span class="toc-text">4.HDFS架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-HDFS读写流程"><span class="toc-text">5.HDFS读写流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1HDFS读流程"><span class="toc-text">5.1HDFS读流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2HDFS写流程"><span class="toc-text">5.2HDFS写流程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-HDFS副本放置策略"><span class="toc-text">6.HDFS副本放置策略</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -374,63 +374,102 @@
       
         <h2 id="HDFS介绍及其架构"><a href="#HDFS介绍及其架构" class="headerlink" title="HDFS介绍及其架构"></a>HDFS介绍及其架构</h2><a id="more"></a>
 
-<h3 id="1-DFS"><a href="#1-DFS" class="headerlink" title="1.DFS"></a>1.DFS</h3><p>​    Distribute File System，分布式文件（管理）系统</p>
+<h3 id="1-DFS"><a href="#1-DFS" class="headerlink" title="1.DFS"></a>1.DFS</h3><p>​    <strong>常见的分布式架构</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">结构</th>
+<th align="center">描述</th>
+<th align="center">优势</th>
+<th align="center">劣势</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Peer-to-Peer</td>
+<td align="center">N台机器相互通信，互为备份</td>
+<td align="center">任何结点宕机都不影响工作</td>
+<td align="center">机器之间经常需要通讯，保持一致性</td>
+</tr>
+<tr>
+<td align="center">Master Slave</td>
+<td align="center">1组机器负责管理，余下负责运算</td>
+<td align="center">结构简单；数据很容易保持一致</td>
+<td align="center">Master宕机，单点故障</td>
+</tr>
+</tbody></table>
+<p>​    <strong>p2p:</strong></p>
+<img src="/2019/11/12/Hadoop%EF%BC%88%E4%B8%89%EF%BC%89/p2p.jpg" style="zoom: 80%;">
+
+<p>​    <strong>master-slave:</strong></p>
+<img src="/2019/11/12/Hadoop%EF%BC%88%E4%B8%89%EF%BC%89/master_slave.jpg" style="zoom: 80%;">        
+
+<p><strong>Distribute File System</strong>，分布式文件（管理）系统</p>
 <p>​    是指文件系统管理的物理存储资源不一定直接链接在本地节点上，而是通过计算机网络与节点相连，可让多机器上的多用户分享文件和存储空间。分布式文件系统的设计基于客户机/服务器模式。</p>
 <blockquote>
 <p>分布式文件系统的特点：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、分布式文件系统可以有效解决数据的存储和管理难题</span><br><span class="line">2、将固定于某个地点的某个文件系统，扩展到任意多个地点/多个文件系统</span><br><span class="line">3、众多的节点组成一个文件系统网络</span><br><span class="line">4、每个节点可以分布在不同的地点，通过网络进行节点间的通信和数据传输</span><br><span class="line">5、在使用分布式文件系统时，无需关心数据是存储在哪个节点上、或者是从哪个节点获取的，只需要像使用本地文件系统一样管理和存储文件系统中的数据</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.分布式文件系统可以有效解决数据的存储和管理难题</span><br><span class="line">2.将固定于某个地点的某个文件系统，扩展到任意多个地点/多个文件系统</span><br><span class="line">3.众多的节点组成一个文件系统网络</span><br><span class="line">4.每个节点可以分布在不同的地点，通过网络进行节点间的通信和数据传输</span><br><span class="line">5.在使用分布式文件系统时，无需关心数据是存储在哪个节点上、或者是从哪个节点获取的，只需要像使用本地文件系统一样管理和存储文件系统中的数据</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h3 id="2-HDFS"><a href="#2-HDFS" class="headerlink" title="2.HDFS"></a>2.HDFS</h3><p>​    Hadoop Distribute File System</p>
 <p>​    是Hadoop项目的核心子项目，使用主/从架构，是分布式计算中数据存储管理的基础，是基于流数据模式访问和处理超大文件的需求而开发的，可以运行于廉价的商用服务器上。</p>
 <blockquote>
+<p>特点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.由若干计算机组成，尤其适合部署在廉价的机器上</span><br><span class="line">2.适合存储非常大的文件 （TB, PB, EB）</span><br><span class="line">3.每份文件可以有多个副本，所以HDFS是高容错、高冗余的文件系统</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
 <p>HDFS优势：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、可构建在廉价机器上，设备成本相对低</span><br><span class="line">2、高容错性，HDFS将数据自动保存多个副本，副本丢失后，自动恢复，防止数据丢失或损坏</span><br><span class="line">3、适合批处理，HDFS适合一次写入、多次查询（读取）的情况，适合在已有的数据进行多次分析，稳定性好</span><br><span class="line">4、适合存储大文件，其中的大表示可以存储单个大文件，因为是分块存储，以及表示存储大量的数据</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.可构建在廉价机器上，设备成本相对低</span><br><span class="line">2.高容错性，HDFS将数据自动保存多个副本，副本丢失后，自动恢复，防止数据丢失或损坏</span><br><span class="line">3.适合批处理，HDFS适合一次写入、多次查询（读取）的情况，适合在已有的数据进行多次分析，稳定性好</span><br><span class="line">4.适合存储大文件，其中的大表示可以存储单个大文件，因为是分块存储，以及表示存储大量的数据</span><br></pre></td></tr></table></figure>
 
 <p>HDFS劣势：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、由于提高吞吐量，降低实时性</span><br><span class="line">2、由于每个文件都会在namenode中记录元数据，如果存储了大量的小文件，会对namenode造成很大的压力</span><br><span class="line">3、不合适小文件处理，在mapreduce的过程中小文件的数量会造成map数量的增大，导致资源被占用，而且速度慢</span><br><span class="line">4、不适合文件的修改，文件只能追加在文件的末尾，不支持任意位置修改，不支持多个写入者操作</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.由于提高吞吐量，降低实时性</span><br><span class="line">2.由于每个文件都会在namenode中记录元数据，如果存储了大量的小文件，会对namenode造成很大的压力</span><br><span class="line">3.不合适小文件处理，在mapreduce的过程中小文件的数量会造成map数量的增大，导致资源被占用，而且速度慢</span><br><span class="line">4.不适合文件的修改，文件只能追加在文件的末尾，不支持任意位置修改，不支持多个写入者操作</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h3 id="3-HDFS从哪里来"><a href="#3-HDFS从哪里来" class="headerlink" title="3.HDFS从哪里来"></a>3.HDFS从哪里来</h3><p>​    HDFS 源于 Google 在2003年10月份发表的GFS（Google File System） 论文。 它其实就是 GFS 的一个克隆版本。</p>
-<h3 id="4-HDFS架构"><a href="#4-HDFS架构" class="headerlink" title="4.HDFS架构    "></a>4.HDFS架构    <img src="/2019/11/12/Hadoop%EF%BC%88%E4%B8%89%EF%BC%89/HDFS架构.png" style="zoom: 150%;"></h3><p><strong>HDFS 采用Master/Slave的架构来存储数据，这种架构主要由四个部分组成，分别为HDFS Client、NameNode、DataNode和Secondary NameNode</strong></p>
+<h3 id="4-HDFS架构"><a href="#4-HDFS架构" class="headerlink" title="4.HDFS架构"></a>4.HDFS架构</h3><img src="/2019/11/12/Hadoop%EF%BC%88%E4%B8%89%EF%BC%89/HDFS架构.png" style="zoom: 100%;">
+
+<p><strong>HDFS 采用Master/Slave的架构来存储数据，这种架构主要由四个部分组成，分别为HDFS Client、NameNode、DataNode和Secondary NameNode</strong></p>
 <ul>
 <li><p><strong>HDFS Client</strong>：</p>
 <blockquote>
-<p>1、文件切分。文件上传 HDFS 的时候，Client 将文件切分成 一个一个的Block，然后进行存储。</p>
-<p>2、与 NameNode 交互，获取文件的位置信息。</p>
-<p>3、与 DataNode 交互，读取或者写入数据。</p>
-<p>4、Client 提供一些命令来管理 HDFS，比如启动或者关闭HDFS。</p>
-<p>5、Client 可以通过一些命令来访问 HDFS。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> &gt;1.文件切分。文件上传 HDFS 的时候，Client 将文件切分成 一个一个的Block，然后进行存储。</span><br><span class="line">2.与 NameNode 交互，获取文件的位置信息。</span><br><span class="line"> &gt;3.与 DataNode 交互，读取或者写入数据。</span><br><span class="line">4.Client 提供一些命令来管理 HDFS，比如启动或者关闭HDFS。</span><br><span class="line"> &gt;5.Client 可以通过一些命令来访问 HDFS。</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 <li><p><strong>NameNode</strong></p>
 <blockquote>
 <p> master，它是一个主管、管理者。</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;1、管理 HDFS 的名称空间。</span><br><span class="line">2、管理数据块（Block）映射信息。</span><br><span class="line">&gt;3、配置副本策略。</span><br><span class="line">4、处理客户端读写请求。</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;1.管理 HDFS 的名称空间。</span><br><span class="line">2.管理数据块（Block）映射信息。</span><br><span class="line">&gt;3.配置副本策略。</span><br><span class="line">4.处理客户端读写请求。</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 <li><p><strong>DataNode</strong></p>
 <blockquote>
 <p>Slave，NameNode 下达命令，DataNode 执行实际的操作。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、存储实际的数据块。</span><br><span class="line">2、执行数据块的读/写操作。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.存储实际的数据块。</span><br><span class="line">2.执行数据块的读/写操作。</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 <li><p><strong>Secondary NameNode</strong></p>
 <blockquote>
 <p>并非 NameNode 的热备。当NameNode 挂掉的时候，它并不能马上替换 NameNode 并提供服务。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &gt;1、辅助 NameNode，分担其工作量。</span><br><span class="line">2、定期合并 fsimage和fsedits，并推送给NameNode。</span><br><span class="line"> &gt;3、在紧急情况下，可辅助恢复 NameNode（H+1）。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &gt;1.辅助 NameNode，分担其工作量。</span><br><span class="line">2.定期合并 fsimage和fsedits，并推送给NameNode。</span><br><span class="line"> &gt;3.在紧急情况下，可辅助恢复 NameNode（H+1）。</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 </ul>
-<h3 id="5-HDFS读写流程"><a href="#5-HDFS读写流程" class="headerlink" title="5.HDFS读写流程"></a>5.HDFS读写流程</h3><p>​    </p>
-<h3 id="6-HDFS副本放置策略"><a href="#6-HDFS副本放置策略" class="headerlink" title="6.HDFS副本放置策略"></a>6.HDFS副本放置策略</h3><h3 id><a href="#" class="headerlink" title></a></h3><ul>
+<h3 id="5-HDFS读写流程"><a href="#5-HDFS读写流程" class="headerlink" title="5.HDFS读写流程"></a>5.HDFS读写流程</h3><h4 id="5-1HDFS读流程"><a href="#5-1HDFS读流程" class="headerlink" title="5.1HDFS读流程"></a>5.1HDFS读流程</h4><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.client向namenode发送读数据请求</span><br><span class="line">2.namenode将datanode信息发给client</span><br><span class="line">3.client从datanode下载数据</span><br></pre></td></tr></table></figure>
+</blockquote>
+<img src="/2019/11/12/Hadoop%EF%BC%88%E4%B8%89%EF%BC%89/HDFS reading.jpg" style="zoom: 100%;">
+
+<p>HDFS会自动根据距离选取最近的数据源。距离从近到远：<strong>同一机器 &lt; 同一机架 &lt; 同一数据中心 &lt; 不同数据中心</strong></p>
+<img src="/2019/11/12/Hadoop%EF%BC%88%E4%B8%89%EF%BC%89/reading seq.jpg" style="zoom: 100%;">
+
+<h4 id="5-2HDFS写流程"><a href="#5-2HDFS写流程" class="headerlink" title="5.2HDFS写流程"></a>5.2HDFS写流程</h4><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.client 向namenode 发送写数据请求</span><br><span class="line">2.namenode 分块 写入datanode</span><br><span class="line">3.datanode 自动完成副本备份</span><br><span class="line">4.datanode 完成后向namenode汇报</span><br><span class="line">5.namenode向client发送通知</span><br></pre></td></tr></table></figure>
+</blockquote>
+<img src="/2019/11/12/Hadoop%EF%BC%88%E4%B8%89%EF%BC%89/HDFS writing.jpg" style="zoom: 100%;">
+
+<h3 id="6-HDFS副本放置策略"><a href="#6-HDFS副本放置策略" class="headerlink" title="6.HDFS副本放置策略"></a>6.HDFS副本放置策略</h3><p>​    <img src="/2019/11/12/Hadoop%EF%BC%88%E4%B8%89%EF%BC%89/replica.jpg" style="zoom: 100%;"></p>
+<ul>
 <li>第一个副本放置在上传文件的DataNode服务器节点上，如果是在集群外提交，则随机放置在一个DataNode服务器节点上。</li>
 <li>第二个副本放置在与第一个DataNode不同的机架的一个节点上。</li>
 <li>第三个副本放置在与第二个DataNode相同的机架的不同节点上。</li>
 <li>更多副本：随机节点放置。</li>
-</ul>
-<ul>
-<li></li>
-<li></li>
-<li></li>
 </ul>
 
       
