@@ -373,7 +373,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-08-21 17:59:25'>2019-11-12 09:32</time>
+        创建时间:<time class="date" title='更新时间: 2020-08-21 19:26:29'>2019-11-12 09:32</time>
         
     </div>
     <div class="article-meta">
@@ -414,10 +414,14 @@
         <h2 id="Hive概述"><a href="#Hive概述" class="headerlink" title="Hive概述"></a>Hive概述</h2><a id="more"></a>
 
 <h3 id="1-Hadoop回顾"><a href="#1-Hadoop回顾" class="headerlink" title="1.Hadoop回顾"></a>1.Hadoop回顾</h3><p>​    狭义：</p>
+<blockquote>
 <p>​        Apache Hadoop软件</p>
+</blockquote>
 <p>​    广义：</p>
+<blockquote>
 <p>​        Hadoop生态圈</p>
 <p>​                Hadoop、Hive、Sqoop、HBase….</p>
+</blockquote>
 <h3 id="2-Hive产生背景"><a href="#2-Hive产生背景" class="headerlink" title="2.Hive产生背景"></a>2.Hive产生背景</h3><p>​        使用MapReduce编程的弊端：</p>
 <blockquote>
 <p>​            1.MapReduce编程复杂度较高；</p>
@@ -428,26 +432,33 @@
 <p>​            <strong>在MySQL/Oracle编程时</strong>，需要先创建一张表（表名，列名，列类型…）（schema/metadata（元数据）），然后根据需求使用SQL来进行分析，编程。</p>
 <p>​            <strong>但是在HDFS上的文件</strong>，多以文本形式存在，可以按照特定分隔符来确认每一列的含义，但是缺失元数据信息。</p>
 </blockquote>
-<h3 id="3-Hive概述"><a href="#3-Hive概述" class="headerlink" title="3.Hive概述"></a>3.Hive概述</h3><p>​        <strong>官网：</strong>hive.apache.org</p>
-<p>​        <strong>官网介绍：</strong>The Apache Hive ™ data warehouse software facilitates reading, writing, and managing large datasets residing in distributed storage using SQL. Structure can be projected onto data already in storage. A command line tool and JDBC driver are provided to connect users to Hive.</p>
+<h3 id="3-Hive概述"><a href="#3-Hive概述" class="headerlink" title="3.Hive概述"></a>3.Hive概述</h3><p>​        <strong>官网：</strong></p>
+<blockquote>
+<p>hive.apache.org</p>
+</blockquote>
+<p>​        <strong>官网介绍：</strong></p>
+<blockquote>
+<p>The Apache Hive ™ data warehouse software facilitates reading, writing, and managing large datasets residing in distributed storage using SQL.             </p>
+<p>Structure can be projected onto data already in storage. A command line tool and JDBC driver are provided to connect users to Hive.</p>
+</blockquote>
 <p>​        <strong>来源：</strong>由Facebook开源，用于解决海量结构化日志统计问题。</p>
 <p>​        <strong>概述：</strong></p>
 <p>​                1. 构建在Hadoop（HDFS/MapReduce/YARN）之上的数据仓库</p>
 <blockquote>
-<p>​                        文件存放在HDFS;</p>
-<p>​                        执行引擎是MapReduce；（Tez/Spark）</p>
-<p>​                        作业提交到YARN上执行。</p>
+<p>文件存放在HDFS;</p>
+<p>执行引擎是MapReduce；（Tez/Spark）</p>
+<p>作业提交到YARN上执行。</p>
 </blockquote>
 <p>​                2. 提供了类似于SQL的查询语言HQL（Hive SQL,与JavaEE中的Hibernate Query Language不同含义）</p>
 <p>​                3. 适用于离线处理/批处理</p>
 <p>​                4. 其他SQL ON Hadoop框架：Presto/Impala/SparkSQL…</p>
 <h3 id="4-Hive优缺点"><a href="#4-Hive优缺点" class="headerlink" title="4.Hive优缺点"></a>4.Hive优缺点</h3><p>​        <strong>优点：</strong></p>
 <blockquote>
-<p>​                使用SQL进行开发，简便易学</p>
+<p>使用SQL进行开发，简便易学</p>
 </blockquote>
 <p>​        <strong>缺点：</strong></p>
 <blockquote>
-<p>​                如果使用MapReduce执行引擎，速度较慢</p>
+<p>如果使用MapReduce执行引擎，速度较慢</p>
 </blockquote>
 <h3 id="5-Hive架构"><a href="#5-Hive架构" class="headerlink" title="5.Hive架构"></a>5.Hive架构</h3><p>​        <img src="/2019/11/12/Hive%EF%BC%88%E4%B8%80%EF%BC%89/Hive架构.png" style="zoom: 100%;"></p>
 <p>​        如图:Hive通过用户提供的一系列交互接口,接收到用户的指令(SQL),使用自己的Driver,结合元数据(MetaStore),将这些指令翻译成MapReduce,提交到Hadoop中执行,最后,将执行返回的结果输出到用户交互接口。</p>
@@ -466,13 +477,13 @@
 </ol>
 <h3 id="6-Hive与RDBMS"><a href="#6-Hive与RDBMS" class="headerlink" title="6.Hive与RDBMS"></a>6.Hive与RDBMS</h3><p>​        <strong>相同点：</strong></p>
 <blockquote>
-<p>​                都使用SQL方言；</p>
-<p>​                都支持事务，但是Hive的事务很少用到；</p>
-<p>​                都支持DML（insert/update），从Apache版本0.14开始支持，但是Hive很少用到。</p>
+<p>都使用SQL方言；</p>
+<p>都支持事务，但是Hive的事务很少用到；</p>
+<p>都支持DML（insert/update），从Apache版本0.14开始支持，但是Hive很少用到。</p>
 </blockquote>
 <p>​        <strong>不同点：</strong></p>
 <blockquote>
-<p>​                体量/集群规模；<br>​                延时性。</p>
+<p>体量/集群规模；<br>​延时性。</p>
 </blockquote>
 
       
