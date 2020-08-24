@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="SINATRAA">
 <meta property="og:description" content="Hive操作">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-22T05:57:50.538Z">
+<meta property="og:updated_time" content="2020-08-24T10:49:51.693Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -389,7 +389,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-08-22 13:57:50'>2019-12-12 09:32</time>
+        创建时间:<time class="date" title='更新时间: 2020-08-24 18:49:51'>2019-12-12 09:32</time>
         
     </div>
     <div class="article-meta">
@@ -411,7 +411,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hive操作"><span class="toc-text">Hive操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-DDL"><span class="toc-text">1.DDL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Hive在HDFS上的位置"><span class="toc-text">2.Hive在HDFS上的位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-查看Hive日志"><span class="toc-text">3.查看Hive日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Hive配置"><span class="toc-text">4.Hive配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Hive的交互式命令"><span class="toc-text">5.Hive的交互式命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Hive中的数据抽象"><span class="toc-text">6.Hive中的数据抽象</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hive操作"><span class="toc-text">Hive操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数据类型"><span class="toc-text">1.数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-分隔符"><span class="toc-text">2.分隔符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-DDL"><span class="toc-text">3.DDL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库DDL"><span class="toc-text">数据库DDL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#表DDL"><span class="toc-text">表DDL</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-内部表与外部表"><span class="toc-text">4.内部表与外部表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-分区表"><span class="toc-text">5.分区表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-DML"><span class="toc-text">6.DML</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -429,101 +429,246 @@
       
         <h2 id="Hive操作"><a href="#Hive操作" class="headerlink" title="Hive操作"></a>Hive操作</h2><a id="more"></a>
 
-<h3 id="1-DDL"><a href="#1-DDL" class="headerlink" title="1.DDL"></a>1.DDL</h3><ol>
-<li><p>启动Hive</p>
+<h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h3><ol>
+<li><p>基本数据类型</p>
 <blockquote>
-<p>hive</p>
+<p>数字：int    bigint    float    double    tinyint(可替换boolean)</p>
+<p>字符串：string</p>
+<p>布尔：boolean</p>
+<p>日期/时间：date    timestamp</p>
 </blockquote>
+<ol start="2">
+<li>复杂数据类型</li>
+</ol>
 </li>
-<li><p>查看所有数据库</p>
+</ol>
+<h3 id="2-分隔符"><a href="#2-分隔符" class="headerlink" title="2.分隔符"></a>2.分隔符</h3><table>
+<thead>
+<tr>
+<th align="center">delimiter</th>
+<th align="center">code</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">^A</td>
+<td align="center">\001</td>
+<td align="center">字段之间的分隔符</td>
+</tr>
+<tr>
+<td align="center">\n</td>
+<td align="center">\n</td>
+<td align="center">记录分隔符</td>
+</tr>
+<tr>
+<td align="center">^B</td>
+<td align="center">\002</td>
+<td align="center">ARRAY/STRUCT (Hive中的复杂数据类型)</td>
+</tr>
+<tr>
+<td align="center">^C</td>
+<td align="center">\003</td>
+<td align="center">key/value of MAP (Hive中的复杂数据类型)</td>
+</tr>
+</tbody></table>
+<h3 id="3-DDL"><a href="#3-DDL" class="headerlink" title="3.DDL"></a>3.DDL</h3><p>​        Data Definition Language</p>
+<ol>
+<li><h4 id="数据库DDL"><a href="#数据库DDL" class="headerlink" title="数据库DDL"></a>数据库DDL</h4></li>
+<li><p><strong>创建</strong>（CREATE ）：</p>
 <blockquote>
-<p>show databases；</p>
-</blockquote>
-</li>
-<li><p>切换数据库</p>
-<blockquote>
-<p>use xxx;</p>
-</blockquote>
-</li>
-<li><p>查看所有表</p>
-<blockquote>
-<p>show tables;</p>
-</blockquote>
-</li>
-<li><p>创建表</p>
-<blockquote>
-<p>create table stu(id int, name string, age int);</p>
-</blockquote>
-</li>
-<li><p>查看表结构</p>
-<blockquote>
-<p>desc stu;<br>desc extended stu;<br>desc formatted stu;（常用）</p>
-</blockquote>
-</li>
-<li><p>插入数据</p>
-<blockquote>
-<p>insert into stu values(1,’pk’,30);</p>
-</blockquote>
-</li>
-<li><p>查询</p>
-<blockquote>
-<p>select * from stu;</p>
-</blockquote>
-</li>
-<li><p>清屏</p>
-<blockquote>
-<p>!clear；</p>
-</blockquote>
-</li>
-<li><p>退出</p>
-<blockquote>
-<p>exit;</p>
+<p>CREATE (DATABASE|SCHEMA) [IF NOT EXISTS] database_name<br>[COMMENT database_comment]<br>[LOCATION hdfs_path]<br>[WITH DBPROPERTIES (property_name=property_value, …)];</p>
+<p>例：</p>
+<p>​    创建库，且指定位置</p>
+<pre><code>CREATE DATABASE IF NOT EXISTS stu LOCATION /xxx;</code></pre><p>​    创建库，且配置注释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE IF NOT EXISTS xxx COMMENT &apos;this is ruozedata database&apos; WITH DBPROPERTIES(&apos;creator&apos;=&apos;pk&apos;, &apos;date&apos;=&apos;9012-12-30&apos;);</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 </ol>
-<h3 id="2-Hive在HDFS上的位置"><a href="#2-Hive在HDFS上的位置" class="headerlink" title="2.Hive在HDFS上的位置"></a>2.Hive在HDFS上的位置</h3><p>​        以stu表为例</p>
+<p><strong>默认default库在HDFS的位置：</strong></p>
 <blockquote>
-<p>默认：</p>
-<p>hdfs://ruozedata001:8020/user/hive/warehouse/stu </p>
-<p>配置：</p>
-<p>hive.metastore.warehouse.dir：/user/hive/warehouse<br>stu：表的名字</p>
+<p>​    default    ==&gt;    hdfs://usr/hive/warehouse</p>
+<p>​    即：${hive.metastore.warehouse.dir}</p>
 </blockquote>
-<p>表的完整路径是: ${hive.metastore.warehouse.dir}/tablename</p>
-<h3 id="3-查看Hive日志"><a href="#3-查看Hive日志" class="headerlink" title="3.查看Hive日志"></a>3.查看Hive日志</h3><p>默认位置：/tmp/hadoop/hive.log</p>
-<p>查看日志位置配置</p>
+<p><strong>指定LOCATION创建的库在HDFS的位置：</strong></p>
 <blockquote>
-<p>cp hive-log4j.properties.template hive-log4j.properties<br>hive.log.dir=${java.io.tmpdir}/${user.name}<br>hive.log.file=hive.log<br>${java.io.tmpdir}/${user.name}/${hive.log.file}<br>/tmp/hadoop/hive.log</p>
+<p>​    xxx    ==&gt;    hdfs://user/hive/warehouse/xxx.db</p>
+<p>​    即：${hive.metastore.warehouse.dir}/dbname.db</p>
 </blockquote>
-<h3 id="4-Hive配置"><a href="#4-Hive配置" class="headerlink" title="4.Hive配置"></a>4.Hive配置</h3><p>查看所有配置参数：</p>
+<ol start="2">
+<li><p><strong>删除</strong>（DROP）</p>
 <blockquote>
-<p><a href="https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties" target="_blank" rel="noopener">https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties</a></p>
+<p>DROP (DATABASE|SCHEMA) [IF EXISTS] database_name [RESTRICT|CASCADE];</p>
+<p>例：</p>
+<p>​    DROP DATABASE IF EXISTS xxx;</p>
+<p>​    DROP DATABASE IF EXISTS xxx CASCADE;（级联删除，慎用）</p>
 </blockquote>
-<p>​    全局：$HIVE_HOME/hive-site.xml中<br>​    临时/当前session：仅对当前session生效<br>​    在Hive执行时：</p>
+</li>
+<li><h4 id="表DDL"><a href="#表DDL" class="headerlink" title="表DDL"></a>表DDL</h4></li>
+<li><p><strong>创建</strong>（CREATE ）：</p>
+<p>第一种方式：新建</p>
 <blockquote>
-<p>查看当前的属性：set key;<br>修改当前的属性：set key=value;</p>
+<p>CREATE [TEMPORARY] [EXTERNAL] TABLE [IF NOT EXISTS] [db_name.]table_name  </p>
+<p>[(col_name data_type [column_constraint_specification] [COMMENT col_comment], …    [constraint_specification])]<br>[COMMENT table_comment]<br>[PARTITIONED BY (col_name data_type [COMMENT col_comment], …)]<br>[CLUSTERED BY (col_name, col_name, …) [SORTED BY (col_name [ASC|DESC], …)] INTO num_buckets BUCKETS]<br>[SKEWED BY (col_name, col_name, …) ]<br>ON ((col_value, col_value, …), (col_value, col_value, …), …)<br>[STORED AS DIRECTORIES]<br>[<br>[ROW FORMAT row_format]<br>[STORED AS file_format]<br>| STORED BY ‘storage.handler.class.name’ [WITH SERDEPROPERTIES (…)]</p>
+<p>]<br>[LOCATION hdfs_path]<br>[TBLPROPERTIES (property_name=property_value, …)] [AS select_statement];</p>
+<p>例：</p>
+<p>​    CREATE TABLE xxx (</p>
+<p>​    colname1 datatype,</p>
+<p>​    colname2 datatype,</p>
+<p>​    …</p>
+<p>​    )ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘\t’;</p>
+<p>从文件导入数据：</p>
+<p>​    LOAD DATA [LOCAL] INPATH ‘filepath’ [OVERWRITE] INTO TABLE tablename [PARTITION (partcol1=val1, partcol2=val2 …)];</p>
+<p>例：</p>
+<p>​    LOAD DATA LOCAL INPATH ‘filepath’ INTO TABLE tablename;</p>
 </blockquote>
-<p>​    在Hive执行前：</p>
+<p>第二种方式：拷贝已有的表（仅结构）</p>
 <blockquote>
-<p>hive -hiveconf hive.cli.print.current.db=true</p>
+<p>CREATE TABLE xxx like xxx;</p>
 </blockquote>
-<h3 id="5-Hive的交互式命令"><a href="#5-Hive的交互式命令" class="headerlink" title="5.Hive的交互式命令"></a>5.Hive的交互式命令</h3><p><strong>hive -e:</strong></p>
+<p>第三种方式：拷贝已有的表（结构和数据）</p>
 <blockquote>
-<p>不需要进入hive命令后，就可以跟上sql语句查询</p>
-<p>hive -e “select * from stu”</p>
+<p>CREATE TABLE xxx as SELECT * FROM xxx;</p>
+<p>CREATE TABLE xxx as SELECT colname1,colname2 FROM xxx;</p>
 </blockquote>
-<p><strong>hive -f:</strong></p>
+</li>
+<li><p><strong>修改</strong>（ALTER）：</p>
+<p>重命名表：</p>
 <blockquote>
-<p>执行指定文件（内容是SQL语句）</p>
-<p>vi stu.sql</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from stu;</span><br></pre></td></tr></table></figure>
-
-<p>hive -f stu.sql</p>
+<p>ALTER TABLE table_name RENAME TO new_table_name;</p>
 </blockquote>
-<p><strong>扩展：</strong></p>
+</li>
+<li><p><strong>删除</strong>（DROP）：</p>
+<p>删除表：</p>
 <blockquote>
-<p>基于Hive的离线统计/数据仓库<br>    把SQL封装到shell脚本中去，使用hive -e “query sql…”<br>    定时调度：crontab     </p>
+<p>DROP TABLE [IF EXISTS] table_name [PURGE];</p>
 </blockquote>
-<h3 id="6-Hive中的数据抽象"><a href="#6-Hive中的数据抽象" class="headerlink" title="6.Hive中的数据抽象"></a>6.Hive中的数据抽象</h3><p><strong>从database-&gt;table-&gt;partition-&gt;bucket都对应HDFS目录</strong></p>
+</li>
+<li><p><strong>清空</strong>（TRUNCATE）：</p>
+<p>清空表数据：</p>
+<blockquote>
+<p>TRUNCATE [TABLE] table_name [PARTITION partition_spec];</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="4-内部表与外部表"><a href="#4-内部表与外部表" class="headerlink" title="4.内部表与外部表"></a>4.内部表与外部表</h3><p>​        内部表：MANAGED</p>
+<p>​        外部表：EXTERNAL</p>
+<ol>
+<li><p><strong>区别</strong></p>
+<blockquote>
+<p>删除表（DROP）时，</p>
+<p>​    内部表会删除HDFS数据和META信息；</p>
+<p>​    外部表只会删除META信息，HDFS数据保留。</p>
+</blockquote>
+</li>
+<li><p><strong>创建外部表并指定表数据</strong></p>
+<blockquote>
+<p>CREATE EXTERNAL TABLE xxx (</p>
+<p>​    colname1 datatype,</p>
+<p>​    colname2 datatype,</p>
+<p>​    …</p>
+<p>​    )ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘\t’ LOCATION ‘/xxx’;</p>
+</blockquote>
+</li>
+<li><p><strong>改变表的类型</strong>（将内部表转换成外部表）</p>
+<blockquote>
+<p>ALTER TABLE xxx SET TBLPROPERTIES (‘EXTERNAL’=’TRUE’);</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="5-分区表"><a href="#5-分区表" class="headerlink" title="5.分区表"></a>5.分区表</h3><p>​        减少IO（磁盘IO/网络IO）</p>
+<ol>
+<li><p><strong>创建分区表</strong></p>
+<blockquote>
+<p>单级分区</p>
+<p>CREATE TABLE xxx (</p>
+<p>colname1 datatype,</p>
+<p>colname2 datatype,</p>
+<p>…</p>
+<p>)</p>
+<p>PARTITIONED BY (pcolname datatype)</p>
+<p>ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘\t’;</p>
+<p>加载数据</p>
+<p>LOAD DATA LOCAL INPATH ‘filepath’ INTO TABLE tablename PARTITION(pname=pvalue);</p>
+<p><strong>对分区表加载数据时，必须指定分区数据</strong></p>
+</blockquote>
+</li>
+<li><p><strong>查看分区信息</strong></p>
+<blockquote>
+<p>在Hive中查看分区字段</p>
+<p>SHOW PATITIONS tablename;</p>
+<p>查询元数据中的分区信息</p>
+<p>SELECT * FROM PATITIONS \G;</p>
+</blockquote>
+</li>
+<li><p><strong>如果文件事先存在HDFS中，但是元数据没有</strong></p>
+<blockquote>
+<p>文件较少：</p>
+<p>​    MSCK REPAIR TABLE table_name ;（慎用）</p>
+<p>文件较多：</p>
+<p>​    ALTER TABLE table_name ADD [IF NOT EXISTS] PARTITION(pname=pvalue);</p>
+</blockquote>
+</li>
+<li><p><strong>创建多级分区表</strong></p>
+<blockquote>
+<p>CREATE TABLE xxx (</p>
+<p>colname1 datatype,</p>
+<p>colname2 datatype,</p>
+<p>…</p>
+<p>)</p>
+<p>PARTITIONED BY (pcolname1 datatype,pcolname2 datatype,…)</p>
+<p>ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘\t’;</p>
+<p>加载数据</p>
+<p>LOAD DATA LOCAL INPATH ‘filepath’ INTO TABLE tablename PARTITION(pname1=pvalue1,pname1=pvalue1,…);</p>
+<p>常用：三级分区，即对应HDFS上的三层目录</p>
+</blockquote>
+</li>
+<li><p><strong>动态分区</strong></p>
+<p>静态分区设置，分区较多时费时。可使用动态分区。</p>
+<blockquote>
+<p><strong>创建语句和静态分区一样，区分是由插入数据参数区分，不是由创建语法区分。</strong></p>
+<p>单级分区：</p>
+<p>CREATE TABLE xxx (</p>
+<p>colname1 datatype,</p>
+<p>colname2 datatype,</p>
+<p>…</p>
+<p>)</p>
+<p>PARTITIONED BY (pcolname datatype)</p>
+<p>ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘\t’;</p>
+<p>多级分区：</p>
+<p>CREATE TABLE xxx (</p>
+<p>colname1 datatype,</p>
+<p>colname2 datatype,</p>
+<p>…</p>
+<p>)</p>
+<p>PARTITIONED BY (pcolname1 datatype,pcolname2 datatype,…)</p>
+<p>ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘\t’;</p>
+<p>插入数据</p>
+<p>INSERT OVERWRITE TABLE xxx PARTITION (pcolname1,pcolname1,…) SELECT colname1,…,pcolname1,pcolname1,… from xxx;</p>
+<p>设置时分区字段(PATITION)放在查询字段(SELECT)最后，</p>
+<p><strong>！！！执行动态分区时需要关闭动态分区严格模式：set hive.exec.dynamic.partition.mode=nonstrict</strong></p>
+</blockquote>
+</li>
+</ol>
+<h3 id="6-DML"><a href="#6-DML" class="headerlink" title="6.DML"></a>6.DML</h3><ol>
+<li><p>从文件导如数据</p>
+<blockquote>
+<p>LOAD DATA [LOCAL] INPATH ‘filepath’ [OVERWRITE] INTO TABLE tablename [PARTITION (partcol1=val1, partcol2=val2 …)]</p>
+<p>例：</p>
+<p>​    从本地文件系统（Linux本地）导入</p>
+<p>​        LOAD DATA LOCAL INPATH ‘filepath’ OVERWRITE INTO TABLE tablename xxx ;</p>
+<p>​    从HDFS文件系统导入</p>
+<p>​        LOAD DATA INPATH ‘filepath’ OVERWRITE INTO TABLE tablename xxx ;</p>
+</blockquote>
+</li>
+<li><p>从已存在的表导入数据</p>
+<blockquote>
+<p>CTAS: (表不能事先存在)</p>
+<p>​    CREATE TABLE xxx AS SELECT colname1,colname1,… FROM xxx;</p>
+<p>表必须事先存在：</p>
+<p>​    INSERT OVERWRITE TABLE tablename1 [PARTITION (partcol1=val1, partcol2=val2 …) [IF NOT EXISTS]] select_statement1 FROM from_statement;<br>​    INSERT INTO TABLE tablename1 [PARTITION (partcol1=val1, partcol2=val2 …)] select_statement1 FROM from_statement;</p>
+</blockquote>
+</li>
+</ol>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。请邮件至 847548379@qq.com。 </span>
