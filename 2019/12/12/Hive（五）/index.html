@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Linux基础命令（四） | SINATRAA</title>
-  <meta name="keywords" content=" 数仓基础 , 大数据 , Linux ">
-  <meta name="description" content="Linux基础命令（四） | SINATRAA">
+  <title>Hive（四） | SINATRAA</title>
+  <meta name="keywords" content=" 数仓基础 , 大数据 , Hive ">
+  <meta name="description" content="Hive（四） | SINATRAA">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Hive操作">
 <meta name="keywords" content="数仓基础,大数据,Hive">
@@ -365,9 +365,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-Linux基础命令（四）" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Hive（五）" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Linux基础命令（四）</h1>
+        <h1 class="article-title">Hive（四）</h1>
     
     <div class="article-meta">
         
@@ -379,7 +379,7 @@
             
                 <a  data-rel="大数据">大数据</a>/
             
-                <a  data-rel="Linux">Linux</a>
+                <a  data-rel="Hive">Hive</a>
             
         </span>
         
@@ -390,14 +390,14 @@
             
             <a class="color4">大数据</a>
             
-            <a class="color1">Linux</a>
+            <a class="color5">Hive</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-14 20:44:51'>2019-11-12 09:32</time>
+        创建时间:<time class="date" title='更新时间: 2020-08-24 19:20:10'>2019-12-12 09:32</time>
         
     </div>
     <div class="article-meta">
@@ -419,7 +419,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux基础命令（四）"><span class="toc-text">Linux基础命令（四）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-vi"><span class="toc-text">1.vi</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1命令行模式常见命令"><span class="toc-text">1.1命令行模式常见命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2粘贴"><span class="toc-text">1.2粘贴</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-3查找ERROR"><span class="toc-text">1.3查找ERROR</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4设置行号"><span class="toc-text">1.4设置行号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-5清空内容"><span class="toc-text">1.5清空内容</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-系统命令"><span class="toc-text">2.系统命令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1查看磁盘状态"><span class="toc-text">2.1查看磁盘状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2查看内存状态"><span class="toc-text">2.2查看内存状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3查看机器负载"><span class="toc-text">2.3查看机器负载</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-查看、杀死进程"><span class="toc-text">3.查看、杀死进程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1查看进程"><span class="toc-text">3.1查看进程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2杀死进程"><span class="toc-text">3.2杀死进程</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-查看进程的端口号"><span class="toc-text">4.查看进程的端口号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-yum源安装"><span class="toc-text">5.yum源安装</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-1搜索"><span class="toc-text">5.1搜索</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2安装"><span class="toc-text">5.2安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3卸载"><span class="toc-text">5.3卸载</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-rpm查看，卸载"><span class="toc-text">6.rpm查看，卸载</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#6-1rpm查看已安装软件"><span class="toc-text">6.1rpm查看已安装软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-2rpm卸载"><span class="toc-text">6.2rpm卸载</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-wget下载安装包"><span class="toc-text">7.wget下载安装包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-压缩-解压"><span class="toc-text">8.压缩/解压</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#8-1tar文件"><span class="toc-text">8.1tar文件</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#8-1-1解压"><span class="toc-text">8.1.1解压</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#8-1-2压缩"><span class="toc-text">8.1.2压缩</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-2zip文件"><span class="toc-text">8.2zip文件</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#8-2-1解压"><span class="toc-text">8.2.1解压</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#8-2-2压缩"><span class="toc-text">8.2.2压缩</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hive-Query"><span class="toc-text">Hive Query</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数据类型"><span class="toc-text">1.数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-分隔符"><span class="toc-text">2.分隔符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-DDL"><span class="toc-text">3.DDL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库DDL"><span class="toc-text">数据库DDL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#表DDL"><span class="toc-text">表DDL</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-内部表与外部表"><span class="toc-text">4.内部表与外部表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-分区表"><span class="toc-text">5.分区表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-DML"><span class="toc-text">6.DML</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -435,97 +435,254 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Linux基础命令（四）"><a href="#Linux基础命令（四）" class="headerlink" title="Linux基础命令（四）"></a>Linux基础命令（四）</h2><a id="more"></a>
+        <h2 id="Hive-Query"><a href="#Hive-Query" class="headerlink" title="Hive Query"></a>Hive Query</h2><a id="more"></a>
 
-<h4 id="1-vi"><a href="#1-vi" class="headerlink" title="1.vi"></a>1.vi</h4><p>​    三种模式：<strong>命令行模式、编辑模式、尾行模式</strong></p>
-<p>​    <strong>对生产配置文件进行vi编辑属于高危命令，应该先进行备份</strong></p>
-<h5 id="1-1命令行模式常见命令"><a href="#1-1命令行模式常见命令" class="headerlink" title="1.1命令行模式常见命令"></a>1.1命令行模式常见命令</h5><blockquote>
-<p>dd     删除当前行</p>
-<p>dG     删除光标当前及以下的所有行<br>ndd   删除光标当前及以下的n行</p>
-<p>gg      跳转到第一行的第一个字母<br>G       跳转到最后一行的第一个字母<br>shift+$ 行尾</p>
-</blockquote>
-<h5 id="1-2粘贴"><a href="#1-2粘贴" class="headerlink" title="1.2粘贴"></a>1.2粘贴</h5><p>​    <strong>必须在编辑模式下进行</strong></p>
-<h5 id="1-3查找ERROR"><a href="#1-3查找ERROR" class="headerlink" title="1.3查找ERROR"></a>1.3查找ERROR</h5><p>​    在尾行模式输入<code>/</code>，输入关键字，按<code>N</code>翻页</p>
-<h5 id="1-4设置行号"><a href="#1-4设置行号" class="headerlink" title="1.4设置行号"></a>1.4设置行号</h5><p>​    在尾行模式</p>
+<h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h3><ol>
+<li><p>基本数据类型</p>
 <blockquote>
-<p>set nu</p>
-<p>set nonu    </p>
+<p>数字：int    bigint    float    double    tinyint(可替换boolean)</p>
+<p>字符串：string</p>
+<p>布尔：boolean</p>
+<p>日期/时间：date    timestamp</p>
 </blockquote>
-<h5 id="1-5清空内容"><a href="#1-5清空内容" class="headerlink" title="1.5清空内容"></a>1.5清空内容</h5><blockquote>
-<p>cat /dev/null &gt; xxx.log     完美</p>
-<p>echo ‘’ &gt; xxx.log                会存在一个字节</p>
-<p>gg dG</p>
-</blockquote>
-<h4 id="2-系统命令"><a href="#2-系统命令" class="headerlink" title="2.系统命令"></a>2.系统命令</h4><h5 id="2-1查看磁盘状态"><a href="#2-1查看磁盘状态" class="headerlink" title="2.1查看磁盘状态"></a>2.1查看磁盘状态</h5><blockquote>
-<p>df -h</p>
-</blockquote>
-<h5 id="2-2查看内存状态"><a href="#2-2查看内存状态" class="headerlink" title="2.2查看内存状态"></a>2.2查看内存状态</h5><blockquote>
-<p>free -m</p>
-</blockquote>
-<h5 id="2-3查看机器负载"><a href="#2-3查看机器负载" class="headerlink" title="2.3查看机器负载"></a>2.3查看机器负载</h5><blockquote>
-<p>top</p>
-</blockquote>
-<p>关注：<code>load average: 0.00, 0.01, 0.05</code></p>
+<ol start="2">
+<li>复杂数据类型</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-分隔符"><a href="#2-分隔符" class="headerlink" title="2.分隔符"></a>2.分隔符</h3><table>
+<thead>
+<tr>
+<th align="center">delimiter</th>
+<th align="center">code</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">^A</td>
+<td align="center">\001</td>
+<td align="center">字段之间的分隔符</td>
+</tr>
+<tr>
+<td align="center">\n</td>
+<td align="center">\n</td>
+<td align="center">记录分隔符</td>
+</tr>
+<tr>
+<td align="center">^B</td>
+<td align="center">\002</td>
+<td align="center">ARRAY/STRUCT (Hive中的复杂数据类型)</td>
+</tr>
+<tr>
+<td align="center">^C</td>
+<td align="center">\003</td>
+<td align="center">key/value of MAP (Hive中的复杂数据类型)</td>
+</tr>
+</tbody></table>
+<h3 id="3-DDL"><a href="#3-DDL" class="headerlink" title="3.DDL"></a>3.DDL</h3><p>​        Data Definition Language</p>
+<ol>
+<li><h4 id="数据库DDL"><a href="#数据库DDL" class="headerlink" title="数据库DDL"></a>数据库DDL</h4></li>
+<li><p><strong>创建</strong>（CREATE ）：</p>
 <blockquote>
-<p>第一个数字：第1min负载</p>
-<p>第一个数字：第5min负载</p>
-<p>第一个数字：第15min负载</p>
-<p>不超过3/10</p>
+<p>CREATE (DATABASE|SCHEMA) [IF NOT EXISTS] database_name<br>[COMMENT database_comment]<br>[LOCATION hdfs_path]<br>[WITH DBPROPERTIES (property_name=property_value, …)];</p>
+<p>例：</p>
+<p>​    创建库，且指定位置</p>
+<pre><code>CREATE DATABASE IF NOT EXISTS stu LOCATION /xxx;</code></pre><p>​    创建库，且配置注释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE IF NOT EXISTS xxx COMMENT &apos;this is ruozedata database&apos; WITH DBPROPERTIES(&apos;creator&apos;=&apos;pk&apos;, &apos;date&apos;=&apos;9012-12-30&apos;);</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h4 id="3-查看、杀死进程"><a href="#3-查看、杀死进程" class="headerlink" title="3.查看、杀死进程"></a>3.查看、杀死进程</h4><h5 id="3-1查看进程"><a href="#3-1查看进程" class="headerlink" title="3.1查看进程"></a>3.1查看进程</h5><blockquote>
-<p>ps -ef | grep xxx</p>
-</blockquote>
-<p>结果：</p>
+</li>
+</ol>
+<p><strong>默认default库在HDFS的位置：</strong></p>
 <blockquote>
-<p>第一列：进程所属用户</p>
-<p>第二列：进程ID，PID</p>
-<p>第三列：进程父ID</p>
+<p>​    default    ==&gt;    hdfs://usr/hive/warehouse</p>
+<p>​    即：${hive.metastore.warehouse.dir}</p>
 </blockquote>
-<h5 id="3-2杀死进程"><a href="#3-2杀死进程" class="headerlink" title="3.2杀死进程"></a>3.2杀死进程</h5><p><strong>高危命令</strong></p>
+<p><strong>指定LOCATION创建的库在HDFS的位置：</strong></p>
 <blockquote>
-<p>kill -9 PID<br>kill -9 PID PID …<br>kill -9 $(pgrep -f 匹配关键词) 杀死于关键字有关的所有进程</p>
+<p>​    xxx    ==&gt;    hdfs://user/hive/warehouse/xxx.db</p>
+<p>​    即：${hive.metastore.warehouse.dir}/dbname.db</p>
 </blockquote>
-<h4 id="4-查看进程的端口号"><a href="#4-查看进程的端口号" class="headerlink" title="4.查看进程的端口号"></a>4.查看进程的端口号</h4><blockquote>
-<p>netstat -nlp | grep PID      （准确）</p>
-<p>或</p>
-<p>netstat -nlp | grep 进程名  </p>
+<ol start="2">
+<li><p><strong>删除</strong>（DROP）</p>
+<blockquote>
+<p>DROP (DATABASE|SCHEMA) [IF EXISTS] database_name [RESTRICT|CASCADE];</p>
+<p>例：</p>
+<p>​    DROP DATABASE IF EXISTS xxx;</p>
+<p>​    DROP DATABASE IF EXISTS xxx CASCADE;（级联删除，慎用）</p>
 </blockquote>
-<p>0.0.0.0:22 当前的ip</p>
-<p>:::22      当前的ip</p>
-<p>127.0.0.1:22 本地可以自己访问自己  window和其他服务器无法进行访问<br>localhost:22 本地可以自己访问自己  window和其他服务器无法进行访问</p>
-<h4 id="5-yum源安装"><a href="#5-yum源安装" class="headerlink" title="5.yum源安装"></a>5.yum源安装</h4><h5 id="5-1搜索"><a href="#5-1搜索" class="headerlink" title="5.1搜索"></a>5.1搜索</h5><blockquote>
-<p>yum search xxx</p>
+</li>
+<li><h4 id="表DDL"><a href="#表DDL" class="headerlink" title="表DDL"></a>表DDL</h4></li>
+<li><p><strong>创建</strong>（CREATE ）：</p>
+<p>第一种方式：新建</p>
+<blockquote>
+<p>CREATE [TEMPORARY] [EXTERNAL] TABLE [IF NOT EXISTS] [db_name.]table_name  </p>
+<p>[(col_name data_type [column_constraint_specification] [COMMENT col_comment], …    [constraint_specification])]<br>[COMMENT table_comment]<br>[PARTITIONED BY (col_name data_type [COMMENT col_comment], …)]<br>[CLUSTERED BY (col_name, col_name, …) [SORTED BY (col_name [ASC|DESC], …)] INTO num_buckets BUCKETS]<br>[SKEWED BY (col_name, col_name, …) ]<br>ON ((col_value, col_value, …), (col_value, col_value, …), …)<br>[STORED AS DIRECTORIES]<br>[<br>[ROW FORMAT row_format]<br>[STORED AS file_format]<br>| STORED BY ‘storage.handler.class.name’ [WITH SERDEPROPERTIES (…)]</p>
+<p>]<br>[LOCATION hdfs_path]<br>[TBLPROPERTIES (property_name=property_value, …)] [AS select_statement];</p>
+<p>例：</p>
+<p>​    CREATE TABLE xxx (</p>
+<p>​    colname1 datatype,</p>
+<p>​    colname2 datatype,</p>
+<p>​    …</p>
+<p>​    )ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘\t’;</p>
+<p>从文件导入数据：</p>
+<p>​    LOAD DATA [LOCAL] INPATH ‘filepath’ [OVERWRITE] INTO TABLE tablename [PARTITION (partcol1=val1, partcol2=val2 …)];</p>
+<p>例：</p>
+<p>​    LOAD DATA LOCAL INPATH ‘filepath’ INTO TABLE tablename;</p>
 </blockquote>
-<h5 id="5-2安装"><a href="#5-2安装" class="headerlink" title="5.2安装"></a>5.2安装</h5><blockquote>
-<p>yum install -y xxx</p>
+<p>第二种方式：拷贝已有的表（仅结构）</p>
+<blockquote>
+<p>CREATE TABLE xxx like xxx;</p>
 </blockquote>
-<h5 id="5-3卸载"><a href="#5-3卸载" class="headerlink" title="5.3卸载"></a>5.3卸载</h5><blockquote>
-<p>yum remove xxx</p>
+<p>第三种方式：拷贝已有的表（结构和数据）</p>
+<blockquote>
+<p>CREATE TABLE xxx as SELECT * FROM xxx;</p>
+<p>CREATE TABLE xxx as SELECT colname1,colname2 FROM xxx;</p>
 </blockquote>
-<h4 id="6-rpm查看，卸载"><a href="#6-rpm查看，卸载" class="headerlink" title="6.rpm查看，卸载"></a>6.rpm查看，卸载</h4><h5 id="6-1rpm查看已安装软件"><a href="#6-1rpm查看已安装软件" class="headerlink" title="6.1rpm查看已安装软件"></a>6.1rpm查看已安装软件</h5><blockquote>
-<p>rpm -qa | grep xxx</p>
+</li>
+<li><p><strong>修改</strong>（ALTER）：</p>
+<p>重命名表：</p>
+<blockquote>
+<p>ALTER TABLE table_name RENAME TO new_table_name;</p>
 </blockquote>
-<h5 id="6-2rpm卸载"><a href="#6-2rpm卸载" class="headerlink" title="6.2rpm卸载"></a>6.2rpm卸载</h5><blockquote>
-<p>rpm -e xxxx  会检查依赖情况</p>
-<p>rpm -e - nodeps xxx 不检查依赖，直接卸载</p>
+</li>
+<li><p><strong>删除</strong>（DROP）：</p>
+<p>删除表：</p>
+<blockquote>
+<p>DROP TABLE [IF EXISTS] table_name [PURGE];</p>
 </blockquote>
-<h4 id="7-wget下载安装包"><a href="#7-wget下载安装包" class="headerlink" title="7.wget下载安装包"></a>7.wget下载安装包</h4><blockquote>
-<p>wget xxx</p>
+</li>
+<li><p><strong>清空</strong>（TRUNCATE）：</p>
+<p>清空表数据：</p>
+<blockquote>
+<p>TRUNCATE [TABLE] table_name [PARTITION partition_spec];</p>
 </blockquote>
-<h4 id="8-压缩-解压"><a href="#8-压缩-解压" class="headerlink" title="8.压缩/解压"></a>8.压缩/解压</h4><h5 id="8-1tar文件"><a href="#8-1tar文件" class="headerlink" title="8.1tar文件"></a>8.1tar文件</h5><h6 id="8-1-1解压"><a href="#8-1-1解压" class="headerlink" title="8.1.1解压"></a>8.1.1解压</h6><blockquote>
-<p>tar -zxvf xxx.tar.gz</p>
+</li>
+</ol>
+<h3 id="4-内部表与外部表"><a href="#4-内部表与外部表" class="headerlink" title="4.内部表与外部表"></a>4.内部表与外部表</h3><p>​        内部表：MANAGED</p>
+<p>​        外部表：EXTERNAL</p>
+<ol>
+<li><p><strong>区别</strong></p>
+<blockquote>
+<p>删除表（DROP）时，</p>
+<p>​    内部表会删除HDFS数据和META信息；</p>
+<p>​    外部表只会删除META信息，HDFS数据保留。</p>
 </blockquote>
-<h6 id="8-1-2压缩"><a href="#8-1-2压缩" class="headerlink" title="8.1.2压缩"></a>8.1.2压缩</h6><blockquote>
-<p>tar -zcvf xxx</p>
+</li>
+<li><p><strong>创建外部表并指定表数据</strong></p>
+<blockquote>
+<p>CREATE EXTERNAL TABLE xxx (</p>
+<p>​    colname1 datatype,</p>
+<p>​    colname2 datatype,</p>
+<p>​    …</p>
+<p>​    )ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘\t’ LOCATION ‘/xxx’;</p>
 </blockquote>
-<h5 id="8-2zip文件"><a href="#8-2zip文件" class="headerlink" title="8.2zip文件"></a>8.2zip文件</h5><h6 id="8-2-1解压"><a href="#8-2-1解压" class="headerlink" title="8.2.1解压"></a>8.2.1解压</h6><blockquote>
-<p>unzip xxx.zip</p>
+</li>
+<li><p><strong>改变表的类型</strong>（将内部表转换成外部表）</p>
+<blockquote>
+<p>ALTER TABLE xxx SET TBLPROPERTIES (‘EXTERNAL’=’TRUE’);</p>
 </blockquote>
-<h6 id="8-2-2压缩"><a href="#8-2-2压缩" class="headerlink" title="8.2.2压缩"></a>8.2.2压缩</h6><blockquote>
-<p>zip xxx</p>
-<p>zip -r xxx.zip ./*         文件夹压缩，在文件夹里面</p>
-<p>zip -r xxx.zip xxx/*    文件夹压缩，在文件夹外面</p>
+</li>
+</ol>
+<h3 id="5-分区表"><a href="#5-分区表" class="headerlink" title="5.分区表"></a>5.分区表</h3><p>​        减少IO（磁盘IO/网络IO）</p>
+<ol>
+<li><p><strong>创建分区表</strong></p>
+<blockquote>
+<p>单级分区</p>
+<p>CREATE TABLE xxx (</p>
+<p>colname1 datatype,</p>
+<p>colname2 datatype,</p>
+<p>…</p>
+<p>)</p>
+<p>PARTITIONED BY (pcolname datatype)</p>
+<p>ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘\t’;</p>
+<p>加载数据</p>
+<p>LOAD DATA LOCAL INPATH ‘filepath’ INTO TABLE tablename PARTITION(pname=pvalue);</p>
+<p><strong>对分区表加载数据时，必须指定分区数据</strong></p>
 </blockquote>
+</li>
+<li><p><strong>查看分区信息</strong></p>
+<blockquote>
+<p>在Hive中查看分区字段</p>
+<p>SHOW PATITIONS tablename;</p>
+<p>查询元数据中的分区信息</p>
+<p>SELECT * FROM PATITIONS \G;</p>
+</blockquote>
+</li>
+<li><p><strong>如果文件事先存在HDFS中，但是元数据没有</strong></p>
+<blockquote>
+<p>文件较少：</p>
+<p>​    MSCK REPAIR TABLE table_name ;（慎用）</p>
+<p>文件较多：</p>
+<p>​    ALTER TABLE table_name ADD [IF NOT EXISTS] PARTITION(pname=pvalue);</p>
+</blockquote>
+</li>
+<li><p><strong>创建多级分区表</strong></p>
+<blockquote>
+<p>CREATE TABLE xxx (</p>
+<p>colname1 datatype,</p>
+<p>colname2 datatype,</p>
+<p>…</p>
+<p>)</p>
+<p>PARTITIONED BY (pcolname1 datatype,pcolname2 datatype,…)</p>
+<p>ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘\t’;</p>
+<p>加载数据</p>
+<p>LOAD DATA LOCAL INPATH ‘filepath’ INTO TABLE tablename PARTITION(pname1=pvalue1,pname1=pvalue1,…);</p>
+<p>常用：三级分区，即对应HDFS上的三层目录</p>
+</blockquote>
+</li>
+<li><p><strong>动态分区</strong></p>
+<p>静态分区设置，分区较多时费时。可使用动态分区。</p>
+<blockquote>
+<p><strong>创建语句和静态分区一样，区分是由插入数据参数区分，不是由创建语法区分。</strong></p>
+<p>单级分区：</p>
+<p>CREATE TABLE xxx (</p>
+<p>colname1 datatype,</p>
+<p>colname2 datatype,</p>
+<p>…</p>
+<p>)</p>
+<p>PARTITIONED BY (pcolname datatype)</p>
+<p>ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘\t’;</p>
+<p>多级分区：</p>
+<p>CREATE TABLE xxx (</p>
+<p>colname1 datatype,</p>
+<p>colname2 datatype,</p>
+<p>…</p>
+<p>)</p>
+<p>PARTITIONED BY (pcolname1 datatype,pcolname2 datatype,…)</p>
+<p>ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘\t’;</p>
+<p>插入数据</p>
+<p>INSERT OVERWRITE TABLE xxx PARTITION (pcolname1,pcolname1,…) SELECT colname1,…,pcolname1,pcolname1,… from xxx;</p>
+<p>设置时分区字段(PATITION)放在查询字段(SELECT)最后，</p>
+<p><strong>！！！执行动态分区时需要关闭动态分区严格模式：set hive.exec.dynamic.partition.mode=nonstrict</strong></p>
+</blockquote>
+</li>
+</ol>
+<h3 id="6-DML"><a href="#6-DML" class="headerlink" title="6.DML"></a>6.DML</h3><ol>
+<li><p>从文件导如数据</p>
+<blockquote>
+<p>LOAD DATA [LOCAL] INPATH ‘filepath’ [OVERWRITE] INTO TABLE tablename [PARTITION (partcol1=val1, partcol2=val2 …)]</p>
+<p>例：</p>
+<p>​    从本地文件系统（Linux本地）导入</p>
+<p>​        LOAD DATA LOCAL INPATH ‘filepath’ OVERWRITE INTO TABLE tablename xxx ;</p>
+<p>​    从HDFS文件系统导入</p>
+<p>​        LOAD DATA INPATH ‘filepath’ OVERWRITE INTO TABLE tablename xxx ;</p>
+</blockquote>
+</li>
+<li><p>从已存在的表导入数据</p>
+<blockquote>
+<p>CTAS: (表不能事先存在)</p>
+<p>​    CREATE TABLE xxx AS SELECT colname1,colname1,… FROM xxx;</p>
+<p>表必须事先存在：</p>
+<p>​    INSERT OVERWRITE TABLE tablename1 [PARTITION (partcol1=val1, partcol2=val2 …) [IF NOT EXISTS]] select_statement1 FROM from_statement;<br>​    INSERT INTO TABLE tablename1 [PARTITION (partcol1=val1, partcol2=val2 …)] select_statement1 FROM from_statement;</p>
+</blockquote>
+</li>
+<li><p>将表数据导出</p>
+<blockquote>
+<p>INSERT OVERWRITE [LOCAL] DIRECTORY directory1 [ROW FORMAT row_format] [STORED AS file_format] SELECT … FROM …</p>
+<p>hive -e ‘SELECT … FROM …’ | grep ‘xxx’ &gt; filePath</p>
+</blockquote>
+</li>
+</ol>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。请邮件至 847548379@qq.com。 </span>
