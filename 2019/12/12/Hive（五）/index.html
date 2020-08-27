@@ -397,7 +397,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-08-25 11:40:22'>2019-12-12 09:32</time>
+        创建时间:<time class="date" title='更新时间: 2020-08-27 16:00:12'>2019-12-12 09:32</time>
         
     </div>
     <div class="article-meta">
@@ -419,7 +419,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hive-Query"><span class="toc-text">Hive Query</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-基础查询"><span class="toc-text">1.基础查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-什么时候跑MR"><span class="toc-text">2.什么时候跑MR?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-常用查询"><span class="toc-text">3.常用查询</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hive-Query"><span class="toc-text">Hive Query</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-基础查询"><span class="toc-text">1.基础查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-什么时候跑MR"><span class="toc-text">2.什么时候跑MR?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-常用查询"><span class="toc-text">3.常用查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-采用HiveServer2-beeline启动Hive"><span class="toc-text">4.采用HiveServer2,beeline启动Hive</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Hive中的复杂数据类型"><span class="toc-text">5.Hive中的复杂数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-应用"><span class="toc-text">6.应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-Hive内置函数"><span class="toc-text">7.Hive内置函数</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -475,12 +475,245 @@
 <li>Added In: Hive 0.10.0 with <a href="https://issues.apache.org/jira/browse/HIVE-2925" target="_blank" rel="noopener">HIVE-2925</a>; default changed in Hive 0.14.0 with <a href="https://issues.apache.org/jira/browse/HIVE-7397" target="_blank" rel="noopener">HIVE-7397</a></li>
 </ul>
 <p>Some select queries can be converted to a single FETCH task, minimizing latency. Currently the query should be single sourced not having any subquery and should not have any aggregations or distincts (which incur RS – ReduceSinkOperator, requiring a MapReduce task), lateral views and joins.</p>
-<p>Supported values are none, minimal and more`.</p>
+<p>Supported values are none, minimal and more.</p>
 <p> <code>none</code>:  Disable hive.fetch.task.conversion (value added in Hive 0.14.0 with <a href="https://issues.apache.org/jira/browse/HIVE-8389" target="_blank" rel="noopener">HIVE-8389</a>)<br> <code>minimal</code>:  SELECT *, FILTER on partition columns (WHERE and HAVING clauses), LIMIT only<br> <code>more</code>:  SELECT, FILTER, LIMIT only (including TABLESAMPLE, virtual columns)</p>
 <p><code>more</code>can take any kind of expressions in the SELECT clause, including UDFs.<br>(UDTFs and lateral views are not yet supported – see <a href="https://issues.apache.org/jira/browse/HIVE-5718" target="_blank" rel="noopener">HIVE-5718</a>.)</p>
 </blockquote>
 <h3 id="3-常用查询"><a href="#3-常用查询" class="headerlink" title="3.常用查询"></a>3.常用查询</h3><ol>
-<li>join</li>
+<li><p>join</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.x,B.y,…</span><br><span class="line">FROM A JOIN B </span><br><span class="line">ON A.oncol = B.oncol;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>默认inner join,还有left join,right join,left outer join,right outer join ,full outer join</p>
+</li>
+</ol>
+<h3 id="4-采用HiveServer2-beeline启动Hive"><a href="#4-采用HiveServer2-beeline启动Hive" class="headerlink" title="4.采用HiveServer2,beeline启动Hive"></a>4.采用HiveServer2,beeline启动Hive</h3><ol>
+<li><p>启动HiveServer2，服务端</p>
+<blockquote>
+<p>默认端口号是10000</p>
+<p>cd $HIVE_HOME/bin</p>
+<p>./hiveserver2</p>
+</blockquote>
+<ol start="2">
+<li>启动beeline，客户端</li>
+</ol>
+<blockquote>
+<p>启动beeline时，建议先cd $HIVE_HOME/bin中去</p>
+<p>cd $HIVE_HOME/bin</p>
+<p>./beeline -u jdbc:hive2://hostname:10000/database -n username</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="5-Hive中的复杂数据类型"><a href="#5-Hive中的复杂数据类型" class="headerlink" title="5.Hive中的复杂数据类型"></a>5.Hive中的复杂数据类型</h3><ol>
+<li><p>ARRAY</p>
+<p>创建表</p>
+<blockquote>
+<p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE array(</span><br><span class="line">`name` string, </span><br><span class="line">`add` array&lt;string&gt;</span><br><span class="line">)</span><br><span class="line">ROW FORMAT DELIMITED FIELDS TERMINATED BY &apos;\t&apos;</span><br><span class="line">COLLECTION ITEMS TERMINATED BY &apos;,&apos;;</span><br></pre></td></tr></table></figure>
+
+<p>加载数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LOAD DATA LOCAL INPATH &apos;xxx&apos; INTO TABLE array;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>按下标取：</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select name,add[2] from array;</span><br></pre></td></tr></table></figure>
+
+<p>如果没有则返回NULL</p>
+</blockquote>
+<p>计算ARRAY大小</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select name,size(add) from array;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>筛选数组中存在指定值的数据</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from array where array_contains(add,&apos;xian&apos;);</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>MAP</p>
+<p>创建表</p>
+<blockquote>
+<p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE hive_map(</span><br><span class="line">`id` int, </span><br><span class="line">`name` string,</span><br><span class="line">`family` map&lt;string,string&gt;,</span><br><span class="line">`age` int</span><br><span class="line">)</span><br><span class="line">ROW FORMAT DELIMITED FIELDS TERMINATED BY &apos;,&apos;</span><br><span class="line">COLLECTION ITEMS TERMINATED BY &apos;#&apos;</span><br><span class="line">MAP KEYS TERMINATED BY &apos;:&apos;;</span><br></pre></td></tr></table></figure>
+
+<p>加载数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LOAD DATA LOCAL INPATH &apos;xxx&apos; INTO TABLE hive_map;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>获取MAP指定KEY</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT id,name,family[&apos;father&apos;] father,family[&apos;mother&apos;] mother,age from hive_map;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>获取MAP的所有KEY</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT id,name,map_keys(family) family,age from hive_map;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>获取MAP的所有VALUE</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT id,name,map_values(family) family,age from hive_map;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>计算MAP的大小</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT id,name,size(family),age from hive_map;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>取出MAP包含指定KEY的数据</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id,name,family[&apos;brother&apos;] brother,age from hive_map where array_contains(map_keys(family),&apos;brother&apos;);</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>STRUCT</p>
+<p>创建表</p>
+<blockquote>
+<p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE hive_struct(</span><br><span class="line">`ip` string, </span><br><span class="line">`info` struct&lt;name:string,age:int&gt;</span><br><span class="line">)</span><br><span class="line">ROW FORMAT DELIMITED FIELDS TERMINATED BY &apos;#&apos;</span><br><span class="line">COLLECTION ITEMS TERMINATED BY &apos;:&apos;;</span><br></pre></td></tr></table></figure>
+
+<p>加载数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LOAD DATA LOCAL INPATH &apos;/home/hdfs/data/hive_struct.txt&apos; INTO TABLE hive_struct;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>查询详细</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select ip,info.name,info.age from hive_struct;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ol>
+<h3 id="6-应用"><a href="#6-应用" class="headerlink" title="6.应用"></a>6.应用</h3><ol>
+<li><p>将一个字段放入ARRAY</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user_id,collect_list(ad_id) from click_log group by user_id;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>去重</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user_id,collect_set(ad_id) from click_log group by user_id;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>计数</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user_id,ad_id,count(1) from click_log group by user_id,ad_id;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>列转行</p>
+<blockquote>
+<p>有空行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select ad_id,cata from ad_list lateral view outer explode(split(catalog,&apos;\\|&apos;)) t as cata;</span><br></pre></td></tr></table></figure>
+
+<p>无空行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select ad_id,cata from ad_list lateral view explode(split(catalog,&apos;\\|&apos;)) t as cata;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>数组排序</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select ad_id,sort_array(catalogs) from ad_list;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ol>
+<h3 id="7-Hive内置函数"><a href="#7-Hive内置函数" class="headerlink" title="7.Hive内置函数"></a>7.Hive内置函数</h3><ol>
+<li><p>查看内置函数</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show functions;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>查看内置函数示例</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">desc function xxx;</span><br><span class="line">desc function extended xxx;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>时间函数</p>
+<blockquote>
+<p>查看当前日期:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select current_date;</span><br></pre></td></tr></table></figure>
+
+<p>查看当前时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select current_timestamp;</span><br></pre></td></tr></table></figure>
+
+<p>查看时间戳（从1970-01-01）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select unix_timestamp();</span><br></pre></td></tr></table></figure>
+
+<p>转换为时间戳</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select unix_timestamp(&apos;2017-05-06 20:30:00&apos;);</span><br><span class="line">select unix_timestamp(&apos;20170506 20:30:00&apos;,&apos;yyyyMMdd HH:mm:ss&apos;);</span><br></pre></td></tr></table></figure>
+
+<p>从时间戳转换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select from_unixtime(1494072000,&apos;yyyy-MM-dd HH:mm:ss&apos;); 类型是bigint</span><br></pre></td></tr></table></figure>
+
+<p>从字符串获取日期</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select to_date(&apos;2017-05-06 20:30:00&apos;);</span><br></pre></td></tr></table></figure>
+
+<p>从字符串获取年、月、日，时、分、秒</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select year(&apos;2017-05-06 20:30:00&apos;);</span><br><span class="line">select month(&apos;2017-05-06 20:30:00&apos;);</span><br><span class="line">select day(&apos;2017-05-06 20:30:00&apos;);</span><br><span class="line">select hour(&apos;2017-05-06 20:30:00&apos;);</span><br><span class="line">select minute(&apos;2017-05-06 20:30:00&apos;);</span><br><span class="line">select second(&apos;2017-05-06 20:30:00&apos;);</span><br></pre></td></tr></table></figure>
+
+<p>时间加减</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select date_add(&apos;2017-05-06 20:30:00&apos;,1);</span><br><span class="line">select date_sub(&apos;2017-05-06 20:30:00&apos;,1);</span><br></pre></td></tr></table></figure>
+
+<p>类型转换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select cast(xxx as datatype);</span><br><span class="line">binary类型的只能转string，要转为int，要binary--&gt;string--&gt;int</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>数学函数</p>
+<blockquote>
+<p>四舍五入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select round(3.3); -&gt;3</span><br></pre></td></tr></table></figure>
+
+<p>取小数点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select round(3.33,1); -&gt;3.3</span><br></pre></td></tr></table></figure>
+
+<p>向上取整</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select ceil(3.33); -&gt;4</span><br></pre></td></tr></table></figure>
+
+<p>向下取整</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select floor(3.33); -&gt;3</span><br></pre></td></tr></table></figure>
+
+<p>取绝对值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select abs(3.33); -&gt;3.33</span><br></pre></td></tr></table></figure>
+
+<p>求最大值，最小值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select greatest(1,2,3); -&gt;3</span><br><span class="line">select least(1,2,3); -&gt;1</span><br><span class="line">不限于数字</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>字符串函数</p>
+<blockquote>
+<p>截取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select substr(&apos;abcdefg&apos;,3);从前往后，从1开始，包含当前index -&gt;&apos;cdefg&apos;</span><br><span class="line">select substr(&apos;abcdefg&apos;,-3);从后往前，从-1开始，包含当前index -&gt;&apos;efg&apos;</span><br><span class="line">select substr(&apos;abcdefg&apos;,3,1);从当前index开始，截取n位 -&gt;&apos;c&apos;</span><br><span class="line">substr=substring</span><br></pre></td></tr></table></figure>
+
+<p>拼接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select concat(&apos;abc&apos;,&apos;defg&apos;); -&gt;&apos;abcdefg&apos;</span><br></pre></td></tr></table></figure>
+
+<p>指定分隔符拼接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select concat_ws(&apos;.&apos;,&apos;www&apos;,array(&apos;baidu&apos;,&apos;com&apos;)); -&gt;&apos;www.baidu.com&apos;</span><br></pre></td></tr></table></figure>
+
+<p>获取字符串长度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select length(&apos;abc&apos;); -&gt;3</span><br></pre></td></tr></table></figure>
+
+<p>分割</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select split(&apos;a1b2c3d&apos;,&apos;[123]&apos;); -&gt;[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;]</span><br><span class="line">&apos;.&apos;要转义&apos;\\.&apos;</span><br></pre></td></tr></table></figure>
+
+<p>转换大小写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select upper(&apos;abcd&apos;);</span><br><span class="line">select lower(&apos;ABCD&apos;);</span><br></pre></td></tr></table></figure>
+
+</blockquote>
+</li>
+<li><p>Json转换</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select json_tuple(jsonstr,k1,k2,…);</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>URL解析</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select parse_url_tuple(&apos;https://www.baidu.com/s?wd=hive&apos;,&apos;HOST&apos;,&apos;PATH&apos;,&apos;QUERY&apos;,&apos;QUERY:wd&apos;);</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>判断字段是否为空</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select isnull(xxx) from xxx;</span><br><span class="line">select isnotnull(xxx) from xxx;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>查找字符串</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select elt(1,&apos;a&apos;,&apos;b&apos;);</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>返回默认值</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select nvl(col,defaultValue) from xxx;</span><br><span class="line">如果为null则返回默认值</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
 </ol>
 
       
