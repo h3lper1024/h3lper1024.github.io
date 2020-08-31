@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Hive（五） | SINATRAA</title>
-  <meta name="keywords" content=" 数仓基础 , 大数据 , Hive ">
-  <meta name="description" content="Hive（五） | SINATRAA">
+  <title>Sqoop（一） | SINATRAA</title>
+  <meta name="keywords" content=" 数仓基础 , 大数据 , Sqoop ">
+  <meta name="description" content="Sqoop（一） | SINATRAA">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Hive操作">
 <meta name="keywords" content="数仓基础,大数据,Hive">
@@ -377,9 +377,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-Hive（五）" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Sqoop（一）" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Hive（五）</h1>
+        <h1 class="article-title">Sqoop（一）</h1>
     
     <div class="article-meta">
         
@@ -402,14 +402,14 @@
             
             <a class="color4">大数据</a>
             
-            <a class="color5">Hive</a>
+            <a class="color1">Sqoop</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-08-28 10:13:39'>2019-12-12 09:32</time>
+        创建时间:<time class="date" title='更新时间: 2020-08-31 17:11:43'>2019-12-12 09:32</time>
         
     </div>
     <div class="article-meta">
@@ -431,7 +431,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hive-Query"><span class="toc-text">Hive Query</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-基础查询"><span class="toc-text">1.基础查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-什么时候跑MR"><span class="toc-text">2.什么时候跑MR?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-常用查询"><span class="toc-text">3.常用查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-采用HiveServer2-beeline启动Hive"><span class="toc-text">4.采用HiveServer2,beeline启动Hive</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Hive中的复杂数据类型"><span class="toc-text">5.Hive中的复杂数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-应用"><span class="toc-text">6.应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-Hive内置函数"><span class="toc-text">7.Hive内置函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-排序问题"><span class="toc-text">8.排序问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#注意参数hive-mapred-mode"><span class="toc-text">注意参数hive.mapred.mode</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sqoop"><span class="toc-text">Sqoop</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-产生背景"><span class="toc-text">1.产生背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-两大版本"><span class="toc-text">2.两大版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-部署配置"><span class="toc-text">3.部署配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-基础命令"><span class="toc-text">4.基础命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-操作"><span class="toc-text">5.操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-基础查询"><span class="toc-text">1.基础查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-什么时候跑MR"><span class="toc-text">2.什么时候跑MR?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-常用查询"><span class="toc-text">3.常用查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-采用HiveServer2-beeline启动Hive"><span class="toc-text">4.采用HiveServer2,beeline启动Hive</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Hive中的复杂数据类型"><span class="toc-text">5.Hive中的复杂数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-应用"><span class="toc-text">6.应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-Hive内置函数"><span class="toc-text">7.Hive内置函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-排序问题"><span class="toc-text">8.排序问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#注意参数hive-mapred-mode"><span class="toc-text">注意参数hive.mapred.mode</span></a></li></ol></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -447,8 +447,115 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Hive-Query"><a href="#Hive-Query" class="headerlink" title="Hive Query"></a>Hive Query</h2><a id="more"></a>
+        <h2 id="Sqoop"><a href="#Sqoop" class="headerlink" title="Sqoop"></a>Sqoop</h2><a id="more"></a>
 
+<h3 id="1-产生背景"><a href="#1-产生背景" class="headerlink" title="1.产生背景"></a>1.产生背景</h3><p>​    两种需求场景：</p>
+<pre><code>1. 数据存在RDBMS中，要使用Hive等工具进行分析，如何将数据导入到HDFS中？
+2. 使用Hive等工具分析的结果，要用WEB样式展示出来，如何将分析结果导入到RDBMS中？</code></pre><p>​    解决方案：</p>
+<ol>
+<li><p>使用MapReduce作业将数据库内容读取到文件</p>
+</li>
+<li><p>将这种模式抽象成一个工具</p>
+<p>这种工具需要具有：</p>
+<ol>
+<li><p>连接RDBMS得设置</p>
+<p>URL，Driver，UserName，Password</p>
+</li>
+<li><p>文件系统得路径</p>
+<p>Path</p>
+</li>
+<li><p>分析工具的设置</p>
+<p>DataBase，Table，Partition</p>
+</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>Sqoop—&gt;SQL to Hadoop</p>
+<p>RDBMS&lt;—&gt;Hadoop</p>
+</blockquote>
+<h3 id="2-两大版本"><a href="#2-两大版本" class="headerlink" title="2.两大版本"></a>2.两大版本</h3><p>Sqoop 1.4.x Sqoop1</p>
+<p>Sqoop  1.99.x Sqoop2</p>
+<p>Sqoop2不兼容Sqoop1</p>
+<p>目前使用Sqoop1较多</p>
+<h3 id="3-部署配置"><a href="#3-部署配置" class="headerlink" title="3.部署配置"></a>3.部署配置</h3><ol>
+<li><p>部署</p>
+<blockquote>
+<p>下载（使用CDH-5.16.2）</p>
+<p><a href="http://archive.cloudera.com/cdh5/cdh/5/sqoop-1.4.6-cdh5.16.2-src.tar.gz" target="_blank" rel="noopener">http://archive.cloudera.com/cdh5/cdh/5/sqoop-1.4.6-cdh5.16.2-src.tar.gz</a></p>
+<p>解压</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf sqoop-1.4.6-cdh5.16.2.tar.gz -C ~/app/</span><br></pre></td></tr></table></figure>
+
+<p>创建软连接</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s sqoop-1.4.6-cdh5.16.2 sqoop</span><br></pre></td></tr></table></figure>
+
+<p>配置环境变量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span><br><span class="line">    #sqoop env</span><br><span class="line">    export SQOOP_HOME=/home/hdfs/app/sqoop</span><br><span class="line">    export PATH=$SQOOP_HOME/bin:$PATH</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>配置</p>
+<blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cp sqoop-env-template.sh sqoop-env.sh</span><br><span class="line">    #Set path to where bin/hadoop is available</span><br><span class="line">    export HADOOP_COMMON_HOME=/home/hdfs/app/hadoop</span><br><span class="line"></span><br><span class="line">    #Set path to where hadoop-*-core.jar is available</span><br><span class="line">    export HADOOP_MAPRED_HOME=/home/hdfs/app/hadoop</span><br><span class="line"></span><br><span class="line">    #set the path to where bin/hbase is available</span><br><span class="line">    #export HBASE_HOME=</span><br><span class="line"></span><br><span class="line">    #Set the path to where bin/hive is available</span><br><span class="line">    export HIVE_HOME=/home/hdfs/app/hive</span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+</blockquote>
+</li>
+</ol>
+<h3 id="4-基础命令"><a href="#4-基础命令" class="headerlink" title="4.基础命令"></a>4.基础命令</h3><ol>
+<li><p>查看数据库</p>
+<blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sqoop list-databases \</span><br><span class="line">--connect jdbc:mysql://hostname:3306/ \</span><br><span class="line">--username xxx \</span><br><span class="line">--password ***</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>查看表</p>
+<blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sqoop list-tables \</span><br><span class="line">--connect jdbc:mysql://hostname:3306/dbname \</span><br><span class="line">--username xxx \</span><br><span class="line">--password ***</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ol>
+<h3 id="5-操作"><a href="#5-操作" class="headerlink" title="5.操作"></a>5.操作</h3><ol>
+<li><p>导入</p>
+<blockquote>
+<p>基础导入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://hostname:3306/dbname \</span><br><span class="line">--username xxx \</span><br><span class="line">--password *** \</span><br><span class="line">--table tablename</span><br></pre></td></tr></table></figure>
+
+<p>指定map作业数量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-m 1</span><br></pre></td></tr></table></figure>
+
+<p>删除目标文件夹</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--delete-target-dir</span><br></pre></td></tr></table></figure>
+
+<p>指定MapReduce作业名称</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--mapreduce-job-name name</span><br></pre></td></tr></table></figure>
+
+<p>指定目标文件夹</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--target-dir dir</span><br></pre></td></tr></table></figure>
+
+<p>指定获取的字段</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--columns 'col1,col2,...'</span><br></pre></td></tr></table></figure>
+
+<p>指定字段分隔符</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--fields-terminated-by '\t'</span><br></pre></td></tr></table></figure>
+
+<p>将字符串类型的NULL替换为空字符串</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--null-string ''</span><br></pre></td></tr></table></figure>
+
+<p>将非字符串类型的NULL替换为0</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--null-non-string '0'</span><br></pre></td></tr></table></figure>
+
+<p>指定条件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--where 'xxx'</span><br></pre></td></tr></table></figure>
+
+<p>使用SQL语句进行查询</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--query 'and $CONDITIONS'</span><br><span class="line">不能与--table一起使用</span><br></pre></td></tr></table></figure>
+
+<p>增量导入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+</blockquote>
+</li>
+</ol>
 <h3 id="1-基础查询"><a href="#1-基础查询" class="headerlink" title="1.基础查询"></a>1.基础查询</h3><blockquote>
 <p>SELECT [ALL | DISTINCT] select_expr, select_expr, …<br>FROM table_reference<br>[WHERE where_condition]<br>[GROUP BY col_list]<br>[ORDER BY col_list]<br>[CLUSTER BY col_list  | [DISTRIBUTE BY col_list] [SORT BY col_list]<br>]<br>[LIMIT [offset,] rows]</p>
 </blockquote>
