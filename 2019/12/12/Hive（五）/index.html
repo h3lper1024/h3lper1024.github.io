@@ -409,7 +409,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-08-28 10:13:39'>2019-12-12 09:32</time>
+        创建时间:<time class="date" title='更新时间: 2020-09-01 18:59:11'>2019-12-12 09:32</time>
         
     </div>
     <div class="article-meta">
@@ -503,16 +503,17 @@
 <li><p>启动HiveServer2，服务端</p>
 <blockquote>
 <p>默认端口号是10000</p>
-<p>cd $HIVE_HOME/bin</p>
-<p>./hiveserver2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $HIVE_HOME/bin</span><br><span class="line">	./hiveserver2</span><br></pre></td></tr></table></figure>
+
+<p>后台启动：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup hive --service hiveserver2 &amp;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <ol start="2">
 <li>启动beeline，客户端</li>
 </ol>
 <blockquote>
 <p>启动beeline时，建议先cd $HIVE_HOME/bin中去</p>
-<p>cd $HIVE_HOME/bin</p>
-<p>./beeline -u jdbc:hive2://hostname:10000/database -n username</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $HIVE_HOME/bin</span><br><span class="line">	./beeline -u jdbc:hive2://hostname:10000/database -n username</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 </ol>
